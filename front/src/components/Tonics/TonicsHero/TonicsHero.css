@@ -1,0 +1,301 @@
+/* ========== DESKTOP (≥1025px) ========== */
+.TonicsHero_section {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--clr-bg);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5.21vw 0;
+}
+
+.TonicsHero_mobile {
+    display: none;
+}
+
+.TonicsHero_content {
+    max-width: 91.58vw;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 5.21vw;
+    position: relative;
+    z-index: 2;
+}
+
+.TonicsHero_left {
+    flex: 1;
+
+}
+
+.TonicsHero_title {
+    margin-bottom: 2.1vw;
+    font-size: 10.7vw;
+    font-weight: 600;
+    line-height: 70%;
+    letter-spacing: -0.08em;
+
+    color: var(--clr-white);
+
+}
+
+.TonicsHero_description {
+    font-size: 2.1vw;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: var(--clr-white);
+    margin: 0 0 5.3vw 0;
+
+}
+
+.TonicsHero_button {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    border: none;
+    padding: 0.94vw 2.08vw;
+    font-size: 0.83vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    border-radius: 2.08vw;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.TonicsHero_button:hover {
+    opacity: 0.85;
+}
+
+.TonicsHero_right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.TonicsHero_image {
+    width: 43.3vw;
+    height: 44.3vw;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5.21vw rgba(138, 43, 226, 0.6));
+    animation: float 6s ease-in-out infinite;
+}
+
+
+
+
+.TonicsHero_section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 52.08vw;
+    height: 52.08vw;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(0, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ========== TABLET (768px - 1024px) ========== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .TonicsHero_section {
+        align-items: flex-start;
+        justify-content: flex-start;
+        min-height: 80vh;
+        padding: 10.42vw 2.60vw;
+    }
+
+    .TonicsHero_content {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5.21vw;
+    }
+
+    .TonicsHero_left {
+        max-width: 46.74vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .TonicsHero_title {
+        font-size: 13.02vw;
+        font-weight: 600;
+        line-height: 70%;
+        letter-spacing: -0.08em;
+        text-transform: lowercase;
+        margin-bottom: 5.21vw;
+    }
+
+    .TonicsHero_description {
+        font-size: 3.26vw;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        max-width: 100%;
+        margin-bottom: 5.21vw;
+    }
+
+    .TonicsHero_button {
+        width: 100%;
+        max-width: 46.74vw;
+        padding: 2.34vw 0;
+        font-size: 2.34vw;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        border-radius: 5.47vw;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .TonicsHero_right {
+        position: absolute;
+        right: 2.60vw;
+        top: 15.63vw;
+        width: 42.45vw;  /* 326px / 768px * 100 */
+        height: 41.41vw; /* 318px / 768px * 100 */
+    }
+
+    .TonicsHero_image_wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .TonicsHero_blur {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(104, 58, 156, 0.7) 0%, transparent 70%);
+        filter: blur(13.02vw);
+        z-index: 1;
+    }
+
+    .TonicsHero_image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        z-index: 2;
+    }
+
+    .TonicsHero_section::before {
+        display: none;
+    }
+}
+
+/* ========== MOBILE (360px - 767px) ========== */
+@media (max-width: 767px) {
+    .TonicsHero_section {
+        min-height: auto;
+        padding: 8.33vw 5.56vw 16.67vw;
+
+    }
+
+    .TonicsHero_content {
+        max-width: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+
+    .TonicsHero_left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        order: 2;
+    }
+
+    .TonicsHero_title {
+        width: 100%;
+        font-size: 27.78vw;
+        font-weight: 600;
+        line-height: 70%;
+        letter-spacing: -0.08em;
+        color: var(--clr-white);
+        margin: 0 0 5.56vw 0;
+    }
+
+    .TonicsHero_description {
+        width: 100%;
+        font-size: 5.56vw;
+        font-weight: 400;
+        line-height: 100%;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        color: var(--clr-white);
+        margin-bottom: 8.33vw;
+    }
+
+    .TonicsHero_button {
+        width: 100%;
+        height: 11.67vw;
+        padding: 5vw 0;
+        font-size: 3.89vw;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        border-radius: 11.11vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .TonicsHero_right {
+        position: relative;
+        width: 88.89vw;
+        height: 89.44vw;
+        order: 1;
+    }
+
+    .TonicsHero_image_wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .TonicsHero_blur {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(104, 58, 156, 0.7) 0%, transparent 70%);
+        filter: blur(27.78vw);
+        z-index: 1;
+    }
+
+    .TonicsHero_image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        z-index: 2;
+    }
+
+    .TonicsHero_section::before {
+        display: none;
+    }
+}

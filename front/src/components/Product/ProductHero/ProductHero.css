@@ -1,0 +1,246 @@
+.ProductHero {
+    width: 100%;
+    background-color: var(--clr-bg);
+    color: var(--clr-white);
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.ProductHero_container {
+    padding-top: 9.08vw;
+    padding-bottom: 4.16vw;
+}
+
+.ProductHero_breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 0.26vw;
+    margin-bottom: 2.08vw;
+    font-size: 0.83vw;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.ProductHero_breadcrumb {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.ProductHero_breadcrumb:hover {
+    opacity: 0.8;
+}
+
+.ProductHero_breadcrumb.active {
+    color: var(--clr-white);
+    opacity: 1;
+}
+
+.ProductHero_breadcrumb_separator {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.94vw;
+}
+
+.ProductHero_wrapper {
+    position: relative;
+    min-height: 38.54vw;
+}
+
+.ProductHero_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8.16vw;
+    position: relative;
+    z-index: 1;
+}
+
+.ProductHero_text_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18.08vw;
+    flex-shrink: 0;
+    max-width: 44.27vw;
+}
+
+.ProductHero_subtitle {
+    font-size: 2.08vw;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.ProductHero_description {
+    font-size: 0.85vw;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-align: justify;
+    margin: 0;
+    max-width: 21.61vw;
+}
+
+.ProductHero_coral {
+    position: relative;
+    flex-shrink: 0;
+    width: 43.17vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+}
+
+.ProductHero_coral img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+}
+
+.ProductHero_title {
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    bottom: -2.7vw;
+    left: 0;
+    right: 0;
+    font-size: 14.6vw;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin: 0;
+    z-index: 2;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ProductHero_container {
+        padding: 0;
+        padding-top: 17.91vw;
+        padding-bottom: 5.21vw;
+    }
+
+    .ProductHero_breadcrumbs {
+        font-size: 1.56vw;
+        gap: 0.52vw;
+        margin-bottom: 3.91vw;
+    }
+
+    .ProductHero_breadcrumb_separator {
+        font-size: 1.82vw;
+    }
+
+    .ProductHero_wrapper {
+        min-height: auto;
+    }
+
+    .ProductHero_top {
+        flex-direction: row;
+        gap: 3.12vw;
+        align-items: flex-start;
+    }
+
+    .ProductHero_text_wrapper {
+        max-width: 60.77vw;
+        gap: 53.08vw;
+    }
+
+    .ProductHero_subtitle {
+        font-size: 3.25vw;
+        line-height: 1;
+    }
+
+    .ProductHero_description {
+        font-size: 1.82vw;
+        max-width: 53%;
+    }
+
+    .ProductHero_coral {
+        right: 30vw;
+        width: 97.27vw;
+        height: 94.31vw;
+        justify-content: center;
+
+    }
+
+    .ProductHero_title {
+        position: absolute;
+        bottom: -3vw;
+        left: 0;
+        font-size: 15.5vw;
+        font-weight: 600;
+        letter-spacing: -0.05em;
+
+    }
+}
+
+@media (max-width: 767px) {
+    .ProductHero{
+        width: 100%;
+    }
+    .ProductHero_container {
+        padding: 0;
+        padding-top: 23.56vw;
+        padding-bottom: 8.33vw;
+    }
+
+    .ProductHero_breadcrumbs {
+        font-size: 3.33vw;
+        gap: 1.11vw;
+        margin-bottom: 5.56vw;
+    }
+
+    .ProductHero_breadcrumb_separator {
+        font-size: 3.89vw;
+    }
+
+    .ProductHero_wrapper {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5.56vw;
+    }
+
+    .ProductHero_top {
+        flex-direction: column;
+        gap: 5.56vw;
+        order: 0;
+    }
+
+    .ProductHero_text_wrapper {
+        max-width: 100%;
+        gap: 5.56vw;
+        order: 0;
+    }
+
+    .ProductHero_subtitle {
+        font-size: 6.67vw;
+        line-height: 1.1;
+    }
+
+    .ProductHero_description {
+        font-size: 3.89vw;
+        max-width: 100%;
+        line-height: 1.3;
+    }
+
+    .ProductHero_coral {
+        left: 25vw;
+        width: 100%;
+        justify-content: center;
+        order: 2;
+    }
+
+    .ProductHero_title {
+        justify-content: center;
+        display: flex;
+        position: absolute;
+        font-size: 13.89vw;
+        order: 1;
+    }
+
+
+}

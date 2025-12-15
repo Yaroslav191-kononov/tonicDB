@@ -1,0 +1,221 @@
+.Partners_section {
+    width: 100%;
+    background-color: var(--clr-bg);
+    padding: 5.21vw 0;
+    border-radius: 50px 50px 0 0;
+}
+
+.Partners_container {
+    margin: 0 auto;
+}
+
+.Partners_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.13vw;
+}
+
+.Partners_title {
+    font-size: 2.6vw;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 110%;
+    color: var(--clr-white);
+    margin: 0;
+}
+
+.Partners_link {
+    font-size: 1.1vw;
+    color: var(--clr-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.52vw;
+    cursor: pointer;
+}
+
+.Partners_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.1vw;
+}
+
+.Partners_card {
+    background-color: #181818;
+    border-radius: 1.04vw;
+    padding: 1.56vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 14.84vw;
+    cursor: pointer;
+}
+
+.Partners_card_title {
+    font-size: 1.04vw;
+    color: var(--clr-white);
+    text-align: center;
+    margin-bottom: 1.04vw;
+}
+
+.Partners_card_logo {
+    width: 6.25vw;
+    height: 6.25vw;
+    object-fit: contain;
+    margin-bottom: 1.04vw;
+    flex: 1;
+}
+
+.Partners_card_link {
+    display: flex;
+    align-items: center;
+    gap: 0.52vw;
+    font-size: 1.1vw;
+    color: var(--clr-white);
+    opacity: 0.6;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.Partners_title_short {
+    display: none;
+}
+
+.Partners_title_full {
+    display: inline;
+}
+
+/* ========== TABLET (768px - 1024px) ========== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .Partners_title_short {
+        display: inline;
+    }
+
+    .Partners_title_full {
+        display: none;
+    }
+    .Partners_section {
+        border-radius: 30px 30px 0 0;
+        padding: 11.81vw 0;
+    }
+
+    .Partners_container {
+        max-width: 100%;
+        padding: 0 2.60vw;
+    }
+
+    .Partners_header {
+        margin-bottom: 5.21vw;
+    }
+
+    .Partners_title {
+        font-size: 4.30vw;
+    }
+
+    .Partners_link {
+        font-size: 1.82vw;
+        gap: 1.04vw;
+    }
+
+    .Partners_grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.3vw;
+    }
+
+    .Partners_card {
+        width: 22.66vw;
+        height: 26.56vw;
+        min-height: auto;
+        padding: 2.0vw;
+        border-radius: 1.30vw;
+    }
+
+    .Partners_card_title {
+        font-size: 2.1vw;
+        margin-bottom: 1.30vw;
+    }
+
+    .Partners_card_logo {
+        width: 10.42vw;
+        height: 10.42vw;
+        margin-bottom: 1.30vw;
+    }
+
+    .Partners_card_link {
+        font-size: 1.8vw;
+        gap: 0.65vw;
+    }
+}
+
+/* ========== MOBILE (360px - 767px) ========== */
+@media (max-width: 767px) {
+    .Partners_title_short {
+        display: inline;
+    }
+
+    .Partners_title_full {
+        display: none;
+    }
+    .Partners_section {
+        border-radius: 20px 20px 0 0;
+        padding: 13.89vw 0;
+    }
+
+
+
+    .Partners_header {
+        flex-direction: row;
+        align-items: center;
+        gap: 1.56vw;
+        margin-bottom: 8.33vw;
+    }
+
+    .Partners_title {
+        width: 50%;
+        font-size: 6.67vw;
+    }
+
+    .Partners_link {
+        font-size: 4vw;
+        gap: 1.39vw;
+    }
+
+    .Partners_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4.17vw;
+    }
+
+    .Partners_card {
+        font-family: 'Inter', Regular;
+        width: 100%;
+        height: auto;
+        min-height: 55.56vw;
+        padding: 2.9vw 1.56vw;
+        border-radius: 2.78vw;
+    }
+
+    .Partners_card_title {
+        font-size: 4.44vw;
+        margin-bottom: 4.17vw;
+    }
+
+    .Partners_card_logo {
+        width: 37.22vw;
+        height: 34.22vw;
+        margin-bottom: 4.17vw;
+    }
+
+    .Partners_card_link {
+        font-size: 4vw;
+        gap: 1.39vw;
+    }
+
+
+    .Partners_card:nth-child(n+5) {
+        display: none;
+    }
+}

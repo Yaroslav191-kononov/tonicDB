@@ -1,0 +1,234 @@
+/* ========== DESKTOP (≥1025px) ========== */
+.TonicsSeoText_section {
+    width: 100%;
+    background-color: var(--clr-bg);
+    padding: 7.81vw 0;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.TonicsSeoText_section::before {
+    content: '';
+    position: absolute;
+    bottom: -37vw;
+    left: 15vw;
+    width: 66.69vw;
+    height: 117.22vw;
+    background-image: url('../../../assets/Image/Dna-line.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.07;
+    transform: rotate(-106.1deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.TonicsSeoText_section::after {
+    content: '';
+    position: absolute;
+    bottom: -4%;
+    left: 8%;
+    width: 18vw;
+    height: 23vw;
+    background: radial-gradient(circle, rgba(255, 200, 0, 0.3) 0%, transparent 70%);
+    filter: blur(2vw);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+.TonicsSeoText_bg_glow {
+    position: absolute;
+    bottom: 15%;
+    left: 35%;
+    width: 30.31vw;
+    height: 4.22vw;
+    background: radial-gradient(ellipse, rgba(255, 144, 0, 0.4) 0%, transparent 70%);
+    filter: blur(10.42vw);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.TonicsSeoText_container {
+    max-width: 91.58vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 44.48vw 1fr;
+    gap: 1.21vw;
+    align-items: start;
+    position: relative;
+    z-index: 3;
+}
+
+.TonicsSeoText_left {
+    display: flex;
+    flex-direction: column;
+}
+
+.TonicsSeoText_title {
+    width: 90%;
+    font-size: 3.65vw;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--clr-white);
+    margin: 0;
+}
+
+.TonicsSeoText_right {
+    display: flex;
+    flex-direction: column;
+    gap: 3.13vw;
+}
+
+.TonicsSeoText_block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.04vw;
+}
+
+.TonicsSeoText_subtitle {
+    font-size: 2.08vw;
+    font-weight: 500;
+    line-height: 90%;
+    letter-spacing: -0.04em;
+    color: var(--clr-white);
+    margin: 0;
+}
+
+.TonicsSeoText_text {
+    font-size: 1.82vw;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    color: var(--clr-white);
+    margin: 0;
+}
+
+/* ========== TABLET (768px - 1024px) ========== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .TonicsSeoText_section {
+        padding: 10.42vw 2.60vw;
+    }
+
+    .TonicsSeoText_section::before {
+        bottom: -40vw;
+        left: -30vw;
+        width: 90vw;
+        height: 160vw;
+    }
+
+    .TonicsSeoText_section::after {
+        bottom: 3%;
+        left: 3%;
+        width: 35vw;
+        height: 35vw;
+        filter: blur(12vw);
+    }
+
+    .TonicsSeoText_bg_glow {
+        bottom: 20%;
+        left: 30%;
+        width: 50vw;
+        height: 7vw;
+        filter: blur(13vw);
+    }
+
+    .TonicsSeoText_container {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .TonicsSeoText_title {
+        width: 100%;
+        font-size: 4.21vw;
+        margin-bottom: 4vw;
+    }
+
+    .TonicsSeoText_right {
+        gap: 3.91vw;
+    }
+
+    .TonicsSeoText_block {
+        gap: 1.56vw;
+    }
+
+    .TonicsSeoText_subtitle {
+        font-size: 3.7vw;
+        line-height: 110%;
+    }
+
+    .TonicsSeoText_text {
+        font-size: 3.3vw;
+        line-height: 130%;
+    }
+}
+
+/* ========== MOBILE (360px - 767px) ========== */
+@media (max-width: 767px) {
+    .TonicsSeoText_section {
+        margin-top: 22vw;
+        padding: 16.67vw 5.56vw;
+    }
+
+    .TonicsSeoText_section::before {
+        bottom: -50vw;
+        left: -40vw;
+        width: 120vw;
+        height: 210vw;
+    }
+
+    .TonicsSeoText_section::after {
+        bottom: 2%;
+        left: 2%;
+        width: 50vw;
+        height: 50vw;
+        filter: blur(15vw);
+    }
+
+    .TonicsSeoText_bg_glow {
+        bottom: 25%;
+        left: 20%;
+        width: 70vw;
+        height: 12vw;
+        filter: blur(20vw);
+    }
+
+    .TonicsSeoText_container {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 8.33vw;
+    }
+
+    .TonicsSeoText_title {
+        width: 100%;
+        font-size: 6.9vw;
+        line-height: 110%;
+        margin-bottom: 0;
+    }
+
+    .TonicsSeoText_right {
+        gap: 8.33vw;
+    }
+
+    .TonicsSeoText_block {
+        gap: 2.78vw;
+    }
+
+    .TonicsSeoText_subtitle {
+        font-size: 6.2vw;
+        line-height: 110%;
+    }
+
+    .TonicsSeoText_text {
+        font-size: 5.5vw;
+        line-height: 155%;
+    }
+}
