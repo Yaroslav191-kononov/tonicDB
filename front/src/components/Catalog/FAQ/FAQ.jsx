@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './FAQ.css';
-
+//
+import { mockData, fetchMockData } from '../../../data/data.js';
 const FAQ = () => {
-    const faqData = [
-        // Ряд 1
-        {
+    const [faqData, setAbout] = useState({articles:[{
             id: 1,
             type: 'small',
             question: 'Что такое тоники жизни?',
@@ -47,22 +46,41 @@ const FAQ = () => {
             type: 'small',
             question: 'Можно ли совмещать Анфельцию с другими средствами?',
             answer: 'Да, Анфельция совместима с большинством продуктов и лекарственных средств, но для достижения наилучших результатов важно подобрать индивидуальный режим приема.'
-        }
-    ];
-
+        }]});
+      const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        let canceled = false;
+        setLoading(true);
+        fetchMockData()
+          .then((resp) => {
+            if (canceled) return;
+            let data = resp;
+            if (data) {
+              setAbout(data.blogKatalog);
+            }
+            setLoading(false);
+          })
+          .catch(() => {
+            if (!canceled) {
+              setLoading(false);
+            }
+          });
+        return () => { canceled = true; };
+      }, []);
     return (
         <section className="faq">
             <div className="container">
-                <h2 className="faq__title">Часто задаваемые вопросы</h2>
+                <h2 className="faq__title">{faqData?.blog_title}</h2>
 
                 <div className="faq__grid">
-                    {faqData.map((item) => (
+                    {faqData?.articles.map((item,key) => (
                         <div
                             key={item.id}
-                            className={`faq-card faq-card--${item.type} faq-card-${item.id}`}
+                            className={`faq-card faq-card--${item.type} faq-card-${item.key}`}
                         >
-                            <h3 className="faq-card__question">{item.question}</h3>
-                            <p className="faq-card__answer">{item.answer}</p>
+                            <h3 className="faq-card__question">{item.title}</h3>
+                            <p className="faq-card__answer">{item.excerpt}</p>
                         </div>
                     ))}
                 </div>

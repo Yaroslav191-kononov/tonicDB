@@ -14,7 +14,7 @@ module.exports = (query) => {
         WHERE id=?
       `,[id]);
       const products = await query(`
-        SELECT id, name, price, image, size, category_id
+        SELECT id, name, price, image, size, category_id,discription
         FROM products
         WHERE category_id=?
       `,[id]);
@@ -27,6 +27,7 @@ module.exports = (query) => {
           image: imageUrl(p.image),
           size: p.size,
           category_id: p.category_id,
+          discription:p.discription,
         })),
       };
     })

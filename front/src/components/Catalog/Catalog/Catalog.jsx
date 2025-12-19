@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Catalog.css';
 import ProductPhoto from '../../../assets/Image/ProductPhoto.jpg';
 import ProductPhoto2 from '../../../assets/Image/ProductPhoto2.png';
@@ -7,24 +7,53 @@ import GalochkaPrime from '../../../assets/Image/GalochkaPrime.svg';
 import SearchIcon from '../../../assets/Image/search.svg';
 import FilterIcon from '../../../assets/Image/Filter.svg';
 import ProductModal from '../ProductModal/ProductModal';
+//
+import { mockData, fetchMockData } from '../../../data/data.js';
+
 const Catalog = () => {
+    const [filters, setFilters] = useState({
+    priceFrom: '',
+    priceTo: '',
+});
+const [modalTrigger, setModalTrigger] = useState(0);
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [allProducts, setAllProducts] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [tonicFilters, setTonicFilters] = useState([]);
+    const [benefitFilters, setBenefitFilters] = useState([]);
+
+
+    useEffect(() => {
+        let canceled = false;
+        fetchMockData()
+            .then((resp) => {
+                if (canceled) return;
+                let data = resp.catalogCatalog;
+                setAllProducts(data.products);
+                setProducts(data.products);
+            })
+            return () => { canceled = true; };
+    }, []);
+
+
+
+    useEffect(() => {
+        applyFilters();
+    }, [tonicFilters, filters, benefitFilters, allProducts]); 
+
 
     const handleCardClick = (product) => {
         setSelectedProduct(product);
         setModalOpen(true);
     };
+
     const [dropdownOpen, setDropdownOpen] = useState({
         type: false,
         price: false,
         benefit: false
     });
 
-    const [filters, setFilters] = useState({
-        priceFrom: '',
-        priceTo: ''
-    });
 
     const [searchQuery, setSearchQuery] = useState('');
     const [filterPanelOpen, setFilterPanelOpen] = useState(false);
@@ -41,18 +70,59 @@ const Catalog = () => {
         setFilterPanelOpen(!filterPanelOpen);
     };
 
-    const products = [
-        { id: 1, size: 'medium', image: ProductPhoto, cardClass: 'product-card-1' },
-        { id: 2, size: 'small', image: ProductPhoto2, cardClass: 'product-card-2' },
-        { id: 3, size: 'large', image: ProductPhoto, cardClass: 'product-card-3' },
-        { id: 4, size: 'large', image: ProductPhoto2, cardClass: 'product-card-4' },
-        { id: 5, size: 'small', image: ProductPhoto, cardClass: 'product-card-5' },
-        { id: 6, size: 'medium', image: ProductPhoto2, cardClass: 'product-card-6' },
-        { id: 7, size: 'small', image: ProductPhoto, cardClass: 'product-card-7' },
-        { id: 8, size: 'medium', image: ProductPhoto2, cardClass: 'product-card-8' },
-        { id: 9, size: 'medium', image: ProductPhoto, cardClass: 'product-card-9' },
-        { id: 10, size: 'large', image: ProductPhoto2, cardClass: 'product-card-10' }
-    ];
+    // Filter functions
+    const applyFilters = () => {
+        let filteredProducts = [...allProducts];
+
+        // Тип тоника фильтр
+        if (tonicFilters.length > 0) {
+            filteredProducts = filteredProducts.filter(product =>
+                tonicFilters.some(filter => product.name.toLowerCase().includes(filter.toLowerCase()))
+            );
+        }
+
+        // Цена фильтр
+        if (filters.priceFrom !== '') {
+            filteredProducts = filteredProducts.filter(product => product.price >= parseInt(filters.priceFrom));
+        }
+        if (filters.priceTo !== '') {
+            filteredProducts = filteredProducts.filter(product => product.price <= parseInt(filters.priceTo));
+        }
+
+        // Вид пользы фильтр
+        if (benefitFilters.length > 0) {
+            filteredProducts = filteredProducts.filter(product =>
+                benefitFilters.some(filter => product.discription.toLowerCase().includes(filter.toLowerCase()))
+            );
+        }
+
+        setProducts(filteredProducts);
+    };
+
+    // Handlers for filter changes
+    const handleTonicFilterChange = (tonic, isChecked) => {
+        if (isChecked) {
+            setTonicFilters([...tonicFilters, tonic]);
+        } else {
+            setTonicFilters(tonicFilters.filter(item => item !== tonic));
+        }
+    };
+
+    const handleBenefitFilterChange = (benefit, isChecked) => {
+        if (isChecked) {
+            setBenefitFilters([...benefitFilters, benefit]);
+        } else {
+            setBenefitFilters(benefitFilters.filter(item => item !== benefit));
+        }
+    };
+
+    const handlePriceFromChange = (value) => {
+        setFilters(prev => ({ ...prev, priceFrom: value }));
+    };
+
+    const handlePriceToChange = (value) => {
+        setFilters(prev => ({ ...prev, priceTo: value }));
+    };
 
     return (
         <div className="catalog">
@@ -92,15 +162,30 @@ const Catalog = () => {
                                         <h3 className="filter-section-title">Тип тоника</h3>
                                         <div className="filter-options">
                                             <label>
-                                                <input type="checkbox" />
+                                                <input
+                                                    type="checkbox"
+                                                    value="Анфельция"
+                                                    checked={tonicFilters.includes('Анфельция')}
+                                                    onChange={(e) => handleTonicFilterChange('Анфельция', e.target.checked)}
+                                                />
                                                 <span>Анфельция</span>
                                             </label>
                                             <label>
-                                                <input type="checkbox" />
+                                                <input
+                                                    type="checkbox"
+                                                    value="Ламинария"
+                                                    checked={tonicFilters.includes('Ламинария')}
+                                                    onChange={(e) => handleTonicFilterChange('Ламинария', e.target.checked)}
+                                                />
                                                 <span>Ламинария</span>
                                             </label>
                                             <label>
-                                                <input type="checkbox" />
+                                                <input
+                                                    type="checkbox"
+                                                    value="Фукус"
+                                                    checked={tonicFilters.includes('Фукус')}
+                                                    onChange={(e) => handleTonicFilterChange('Фукус', e.target.checked)}
+                                                />
                                                 <span>Фукус</span>
                                             </label>
                                         </div>
@@ -115,7 +200,7 @@ const Catalog = () => {
                                                 <input
                                                     type="number"
                                                     value={filters.priceFrom}
-                                                    onChange={(e) => setFilters(prev => ({...prev, priceFrom: e.target.value}))}
+                                                    onChange={(e) => handlePriceFromChange(e.target.value)}
                                                     className="price-input"
                                                 />
                                             </div>
@@ -124,7 +209,7 @@ const Catalog = () => {
                                                 <input
                                                     type="number"
                                                     value={filters.priceTo}
-                                                    onChange={(e) => setFilters(prev => ({...prev, priceTo: e.target.value}))}
+                                                    onChange={(e) => handlePriceToChange(e.target.value)}
                                                     className="price-input"
                                                 />
                                             </div>
@@ -136,15 +221,30 @@ const Catalog = () => {
                                         <h3 className="filter-section-title">Вид пользы</h3>
                                         <div className="filter-options">
                                             <label>
-                                                <input type="checkbox" />
+                                                <input
+                                                    type="checkbox"
+                                                    value="Умственная деятельность"
+                                                    checked={benefitFilters.includes('Умственная деятельность')}
+                                                    onChange={(e) => handleBenefitFilterChange('Умственная деятельность', e.target.checked)}
+                                                />
                                                 <span>Умственная деятельность</span>
                                             </label>
                                             <label>
-                                                <input type="checkbox" />
+                                                <input
+                                                    type="checkbox"
+                                                    value="Физическое здоровье"
+                                                    checked={benefitFilters.includes('Физическое здоровье')}
+                                                    onChange={(e) => handleBenefitFilterChange('Физическое здоровье', e.target.checked)}
+                                                />
                                                 <span>Физическое здоровье</span>
                                             </label>
                                             <label>
-                                                <input type="checkbox" />
+                                                <input
+                                                    type="checkbox"
+                                                    value="Лечение стресса"
+                                                    checked={benefitFilters.includes('Лечение стресса')}
+                                                    onChange={(e) => handleBenefitFilterChange('Лечение стресса', e.target.checked)}
+                                                />
                                                 <span>Лечение стресса</span>
                                             </label>
                                         </div>
@@ -168,15 +268,30 @@ const Catalog = () => {
                         {dropdownOpen.type && (
                             <div className="Component_54">
                                 <label>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        value="Анфельция"
+                                        checked={tonicFilters.includes('Анфельция')}
+                                        onChange={(e) => handleTonicFilterChange('Анфельция', e.target.checked)}
+                                    />
                                     <span>Анфельция</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        value="Ламинария"
+                                        checked={tonicFilters.includes('Ламинария')}
+                                        onChange={(e) => handleTonicFilterChange('Ламинария', e.target.checked)}
+                                    />
                                     <span>Ламинария</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        value="Фукус"
+                                        checked={tonicFilters.includes('Фукус')}
+                                        onChange={(e) => handleTonicFilterChange('Фукус', e.target.checked)}
+                                    />
                                     <span>Фукус</span>
                                 </label>
                             </div>
@@ -198,7 +313,7 @@ const Catalog = () => {
                                     <input
                                         type="number"
                                         value={filters.priceFrom}
-                                        onChange={(e) => setFilters(prev => ({...prev, priceFrom: e.target.value}))}
+                                        onChange={(e) => handlePriceFromChange(e.target.value)}
                                         className="price-input"
                                     />
                                 </div>
@@ -207,7 +322,7 @@ const Catalog = () => {
                                     <input
                                         type="number"
                                         value={filters.priceTo}
-                                        onChange={(e) => setFilters(prev => ({...prev, priceTo: e.target.value}))}
+                                        onChange={(e) => handlePriceToChange(e.target.value)}
                                         className="price-input"
                                     />
                                 </div>
@@ -226,15 +341,30 @@ const Catalog = () => {
                         {dropdownOpen.benefit && (
                             <div className="Component_51">
                                 <label>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        value="Умственная деятельность"
+                                        checked={benefitFilters.includes('Умственная деятельность')}
+                                        onChange={(e) => handleBenefitFilterChange('Умственная деятельность', e.target.checked)}
+                                    />
                                     <span>Умственная деятельность</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        value="Физическое здоровье"
+                                        checked={benefitFilters.includes('Физическое здоровье')}
+                                        onChange={(e) => handleBenefitFilterChange('Физическое здоровье', e.target.checked)}
+                                    />
                                     <span>Физическое здоровье</span>
                                 </label>
                                 <label>
-                                    <input type="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        value="Лечение стресса"
+                                        checked={benefitFilters.includes('Лечение стресса')}
+                                        onChange={(e) => handleBenefitFilterChange('Лечение стресса', e.target.checked)}
+                                    />
                                     <span>Лечение стресса</span>
                                 </label>
                             </div>
@@ -244,10 +374,10 @@ const Catalog = () => {
 
                 {/* Сетка товаров */}
                 <div className="products-grid">
-                    {products.map((product) => (
+                    {products?.map((product, key) => (
                         <div
                             key={product.id}
-                            className={`product-card ${product.cardClass}`}
+                            className={`product-card product-card-${key + 1}`}
                             data-size={product.size}
                             onClick={() => handleCardClick(product)}
                             style={{ cursor: 'pointer' }}
@@ -257,12 +387,11 @@ const Catalog = () => {
                                 style={{ backgroundImage: `url(${product.image})` }}
                             ></div>
                             <div className="product-info">
-                                <h3>НАЗВАНИЕ ТОВАРА</h3>
+                                <h3>{product.name}</h3>
                                 <p className="description">
-                                    Текст описания текст описания текст описания текст описания
-                                    текст описания текст описания текст описания текст описания
+                                    {product.discription}
                                 </p>
-                                <p className="price">ЦЕНА</p>
+                                <p className="price">{product.price}</p>
                             </div>
                         </div>
                     ))}
