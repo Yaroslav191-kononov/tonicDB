@@ -1,0 +1,2989 @@
+/* src/pages/Products/ProductsPage.css */
+.ProductsPage {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--clr-background);
+}
+
+.ProductsPage_container {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 4.38vw);
+}
+
+.ProductsPage_main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.ProductsPage_content {
+    width: 100%;
+    background-color: var(--clr-dark-bg);
+    border-radius: 1.04vw;
+    padding: 1.56vw;
+}
+
+/* HEADER */
+.ProductsPage_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.56vw;
+}
+
+.ProductsPage_title {
+    font-size: 2.60vw;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--clr-white);
+    margin: 0;
+}
+
+.ProductsPage_actions {
+    display: flex;
+    gap: 0.78vw;
+    align-items: center;
+}
+.ProductsPage_export-wrapper {
+    position: relative;
+}
+.ProductsPage_export {
+    width: 14.06vw;
+    height: 2.19vw;
+    background-color: var(--clr-white);
+    border-radius: 2.08vw;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.04vw;
+    font-size: 0.73vw;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: opacity 0.3s ease, background 0.2s ease;
+}
+
+
+.ProductsPage_export:hover {
+    background-color: rgba(245, 245, 245, 1);
+}
+
+
+.ProductsPage_export svg {
+    width: 0.63vw;
+    height: 0.63vw;
+}
+
+.ProductsPage_export_button {
+    font-size: 0.85vw;
+    gap: 0.55vw;
+    align-items: center;
+    display: flex;
+}
+.ProductsPage_export-dropdown {
+    position: absolute;
+    top: 2.5vw;
+    right: 0;
+    width: 9.9vw;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 1.1vw;
+    padding: 0.42vw 0;
+    box-shadow: 0 0.42vw 1.04vw rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.ProductsPage_add {
+    width: 2.19vw;
+    height: 2.19vw;
+    background-color: rgba(205, 255, 255, 1);
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+.ProductsPage_export-item {
+    width: 100%;
+    height: 2.08vw;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.52vw;
+    padding: 0 0.83vw;
+    font-size: 0.83vw;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    text-align: left;
+}
+.ProductsPage_export-item:hover {
+    background: rgba(240, 240, 240, 1);
+    color: rgba(0, 0, 0, 1);
+}
+
+.ProductsPage_export-item svg {
+    width: 0.83vw;
+    height: 0.83vw;
+    flex-shrink: 0;
+}
+.ProductsPage_add:hover {
+    opacity: 0.9;
+}
+
+.ProductsPage_add svg {
+    width: 1.04vw;
+    height: 1.04vw;
+}
+
+/* CONTROLS */
+.ProductsPage_controls {
+    display: flex;
+    gap: 1.04vw;
+    margin-bottom: 1.04vw;
+}
+
+/* SEARCH */
+.ProductsPage_search-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.ProductsPage_search {
+    flex: 1;
+    height: 2.29vw;
+    background-color: rgba(64, 64, 64, 1);
+    border-radius: 0.36vw;
+    display: flex;
+    align-items: center;
+    gap: 0.52vw;
+    padding: 0 1.04vw;
+    transition: border-radius 0.2s ease;
+}
+.ProductsPage_search-wrapper:has(.ProductsPage_search-history) .ProductsPage_search {
+    border-radius: 0.36vw 0.36vw 0 0;
+}
+.ProductsPage_search svg {
+    width: 1.04vw;
+    height: 1.04vw;
+    flex-shrink: 0;
+}
+
+.ProductsPage_search_input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0.73vw;
+    font-weight: 400;
+    color: var(--clr-white);
+}
+
+
+.ProductsPage_search_input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* История поиска */
+.ProductsPage_search-history {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2.29vw;
+    background: rgba(51, 51, 51, 1);
+    border-radius: 0 0 0.36vw 0.36vw;
+    overflow: hidden;
+    z-index: 150;
+    box-shadow: 0 0.52vw 1.04vw rgba(0, 0, 0, 0.3);
+}
+
+.ProductsPage_search-history-item {
+    width: 100%;
+    text-align: left;
+    padding: 0.52vw 0.83vw;
+    background: transparent;
+    border: none;
+    color: var(--clr-white);
+    font-size: 0.73vw;
+    cursor: pointer;
+    border-bottom: 0.03vw solid rgba(255, 255, 255, 0.08);
+}
+
+.ProductsPage_search-history-item:first-child {
+    background: rgba(90, 90, 90, 1);
+}
+
+.ProductsPage_search-history-item:last-child {
+    border-bottom: none;
+}
+
+.ProductsPage_search-history-item:hover {
+    background: rgba(80, 80, 80, 1);
+}
+
+/* FILTERS BUTTON */
+.ProductsPage_filters-wrap {
+    position: relative;
+}
+
+.ProductsPage_filters {
+    width: 12.55vw;
+    height: 2.29vw;
+    background-color: rgba(64, 64, 64, 1);
+    border-radius: 0.36vw;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55vw;
+    padding: 0 1.04vw;
+    font-size: 0.85vw;
+    font-weight: 400;
+    color: var(--clr-white);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ProductsPage_filters:hover {
+    background-color: rgba(74, 74, 74, 1);
+}
+
+.ProductsPage_filters svg {
+    width: 1.04vw;
+    height: 1.04vw;
+}
+
+/* FILTERS DROPDOWN */
+.FiltersDropdown {
+    position: absolute;
+    top: 2.7vw;
+    right: 0;
+    width: 23.6vw;
+    height: 25vw;
+    background: #ffffff;
+    border-radius: 1.04vw;
+    padding: 1.25vw 1.04vw 1.04vw;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    z-index: 150;
+}
+
+.FiltersDropdown_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.04vw;
+}
+
+.FiltersDropdown_header h2 {
+    font-size: 1.46vw;
+    font-weight: 400;
+    margin: 0;
+}
+
+.FiltersDropdown_close {
+    border: none;
+    background: transparent;
+    font-size: 1.04vw;
+    cursor: pointer;
+}
+
+.FiltersDropdown_body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.94vw;
+}
+
+.FiltersDropdown_group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.31vw;
+}
+
+.FiltersDropdown_group label {
+    font-size: 0.83vw;
+    color: rgba(0, 0, 0, 0.4);
+}
+.FiltersDropdown_select--wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.FiltersDropdown_select {
+    height: 1.98vw;
+    border-radius: 0.36vw;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.78vw;
+    font-size: 0.83vw;
+    color: #000;
+    font-weight: 400;
+
+}
+.FiltersDropdown_select:hover {
+    background: #d5d5d5;
+}
+.FiltersDropdown_select--wrapper:hover .FiltersDropdown_select img {
+    transform: rotate(180deg);
+}
+
+.FiltersDropdown_select img {
+    width: 1.25vw;
+    height: 1.25vw;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.FiltersDropdown_selected-text {
+    pointer-events: none;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* нативный select поверх всего блока */
+.FiltersDropdown_native {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0.83vw;
+    border: none;
+    background: transparent;
+}
+
+/* даты */
+.FiltersDropdown_date-row {
+    display: flex;
+    gap: 0.99vw;
+}
+
+.FiltersDropdown_date {
+    flex: 1;
+    height: 1.98vw;
+    border-radius: 0.36vw;
+    background: #e5e5e5;
+    display: flex;
+    align-items: center;
+    padding: 0 0.68vw;
+    gap: 0.42vw;
+    font-size: 0.83vw;
+    color: #000;
+    position: relative;
+    cursor: pointer;
+}
+.FiltersDropdown_date > * {
+    pointer-events: none;
+}
+.FiltersDropdown_date span {
+    flex: 1;
+}
+.FiltersDropdown_date img {
+    width: 1.25vw;
+    height: 1.25vw;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.FiltersDate {
+    display: flex;
+    align-items: center;
+    gap: 0.42vw;
+    pointer-events: none;
+}
+
+/* видимый инпут даты */
+.FiltersDate_input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2; /* выше всех элементов */
+}
+.FiltersDate_input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+/* Диапазон цены */
+.FiltersDropdown_range {
+    position: relative;
+    margin-top: 0.31vw;
+    height: 1.3vw;
+}
+
+.FiltersDropdown_range-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 0.16vw;
+    transform: translateY(-50%);
+    border-radius: 0.16vw;
+    background: rgba(229, 229, 229, 1);
+}
+
+.FiltersDropdown_range-track-active {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 0.16vw;
+    background: rgba(205, 255, 255, 1);
+}
+
+.FiltersDropdown_thumb {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.FiltersDropdown_thumb::-webkit-slider-thumb {
+    pointer-events: auto;
+}
+
+.FiltersDropdown_thumb::-moz-range-thumb {
+    pointer-events: auto;
+}
+
+.FiltersDropdown_thumb::-webkit-slider-runnable-track {
+    background: transparent;
+}
+
+.FiltersDropdown_thumb::-moz-range-track {
+    background: transparent;
+}
+
+.FiltersDropdown_thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.04vw;
+    height: 1.04vw;
+    border-radius: 50%;
+    background: rgba(205, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.FiltersDropdown_thumb::-moz-range-thumb {
+    width: 1.04vw;
+    height: 1.04vw;
+    border-radius: 50%;
+    background: rgba(205, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.FiltersDropdown_range input[type='range'] {
+    width: 100%;
+}
+
+.FiltersDropdown_range-labels {
+    margin-top: 0.31vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.83vw;
+    color: #000;
+}
+
+.FiltersDropdown_footer {
+    margin-top: 0.83vw;
+}
+
+.FiltersDropdown_save {
+    width: 10.26vw;
+    height: 2.19vw;
+    border-radius: 0.36vw;
+    border: none;
+    background: #cdffff;
+    color: #000;
+    font-size: 0.83vw;
+    cursor: pointer;
+}
+
+/* MODAL ADD PRODUCT */
+.AddProductOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 90;
+}
+
+.AddProductPanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    background: #170c0c;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25vw 1.67vw;
+    box-shadow: -0.42vw 0 1.25vw rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+.AddProductPanel_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25vw;
+}
+
+.AddProductPanel_header h2 {
+    font-size: 1.7vw;
+    font-weight: 400;
+    margin: 0;
+}
+
+.AddProductPanel_close {
+    background: transparent;
+    border: none;
+    color: #ffffff80;
+    font-size: 1.04vw;
+    cursor: pointer;
+}
+
+.AddProductPanel_body {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 0.42vw;
+}
+
+/* две колонки */
+.AddProductPanel_grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25vw;
+    align-items: flex-start;
+}
+
+.AddProductPanel_col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1vw;
+}
+
+.AddProductPanel_block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55vw;
+}
+
+.AddProductPanel_block_title {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85vw;
+    font-weight: 400;
+    margin: 0;
+}
+
+.AddProductPanel_group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55vw;
+}
+
+.AddProductPanel_group label {
+    font-size: 0.85vw;
+    color: #ffffff80;
+}
+
+.AddProductPanel_block--cert {
+    margin-top: 1.04vw;
+}
+
+.AddProductPanel_block--extra {
+    margin-top: 1.04vw;
+}
+
+/* поля */
+.field-input,
+.field-textarea,
+.AddProductPanel_upload,
+.AddProductPanel_select-btn {
+    background: rgba(64, 64, 64, 1);
+    border-radius: 0.42vw;
+    border: 0.05vw solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 0.85vw;
+    padding: 0.42vw 0.63vw;
+    outline: none;
+}
+
+.field-input {
+    height: 2.08vw;
+}
+
+.field-textarea {
+    min-height: 6.25vw;
+    resize: vertical;
+    background: rgba(64, 64, 64, 1);
+    border-radius: 0.42vw;
+    border: 0.05vw solid rgba(255, 255, 255, 0.12);
+}
+
+.AddProductPanel_subtitle {
+    margin: 0;
+    font-size: 0.85vw;
+    color: white;
+}
+
+.field-textarea--description {
+    height: 11.93vw;
+    min-height: 11.93vw;
+    max-height: 11.93vw;
+    resize: none;
+    background: rgba(30, 13, 13, 1);
+    border-radius: 0.52vw;
+    border: 0.52vw solid rgba(64, 64, 64, 1);
+}
+
+.field-input::placeholder,
+.field-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* загрузка файлов */
+.AddProductPanel_upload {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 6.25vw;
+    text-align: center;
+    cursor: pointer;
+}
+
+.AddProductPanel_upload--main {
+    height: 6.15vw;
+}
+
+.AddProductPanel_upload_input {
+    display: none;
+}
+
+.AddProductPanel_upload_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.52vw;
+}
+
+.AddProductPanel_upload_content img {
+    width: 2.1vw;
+    height: 2.1vw;
+    object-fit: contain;
+}
+
+.AddProductPanel_upload span {
+    font-size: 0.68vw;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.AddProductPanel_upload span button {
+    background: none;
+    border: none;
+    color: #cfffff;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+}
+
+/* превью фото */
+.AddProductPanel_photos_row {
+    margin-top: 0.3vw;
+    display: flex;
+    gap: 1.1vw;
+}
+
+.AddProductPanel_photo_small {
+    position: relative;
+    flex: 0 0 auto;
+    width: 4.9vw;
+    height: 4.9vw;
+    border-radius: 0.42vw;
+    background: rgba(64, 64, 64, 1);
+    overflow: hidden;
+}
+
+.AddProductPanel_photo_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.AddProductPanel_photo_actions {
+    position: absolute;
+    left: 0.42vw;
+    right: 0.42vw;
+    bottom: 0.42vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AddProductPanel_icon-btn {
+    width: 1.04vw;
+    height: 1.04vw;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.AddProductPanel_icon-btn img {
+    width: 0.63vw;
+    height: 0.63vw;
+    object-fit: contain;
+}
+
+/* строки с несколькими полями */
+.AddProductPanel_inline {
+    display: flex;
+    gap: 1.1vw;
+}
+
+.AddProductPanel_inline--2 > .AddProductPanel_group {
+    flex: 0 0 10.83vw;
+    max-width: 10.47vw;
+}
+
+/* кнопка выбора из каталога */
+.AddProductPanel_select-btn {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 0.25vw;
+    height: 2.08vw;
+}
+
+.AddProductPanel_block_title--accent {
+    font-size: 1.1vw;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 0.55vw;
+}
+
+/* ссылки */
+.AddProductPanel_link {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.85vw;
+    cursor: pointer;
+    padding: 0;
+    align-self: flex-start;
+    text-decoration: underline;
+    text-underline-offset: 0.25vw;
+}
+
+/* нижний row: тип/вид */
+.AddProductPanel_bottom-row {
+    margin-bottom: 2vw;
+    display: flex;
+    gap: 0.83vw;
+    margin-top: 2.1vw;
+}
+
+.AddProductPanel_upload--doc {
+    justify-content: flex-start;
+    gap: 0.63vw;
+    padding-left: 0.83vw;
+}
+
+.AddProductPanel_upload_icon {
+    width: 1.25vw;
+    height: 1.25vw;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.AddProductPanel_bottom-row .AddProductPanel_group {
+    flex: 1;
+}
+
+.AddProductPanel_row {
+    display: flex;
+    gap: 0.83vw;
+    margin-top: 1.25vw;
+}
+
+.AddProductPanel_row .AddProductPanel_block {
+    flex: 1;
+}
+
+/* футер */
+.AddProductPanel_footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.63vw;
+    padding-top: 0.83vw;
+    border-top: 0.05vw solid rgba(255, 255, 255, 0.12);
+}
+
+.AddProductPanel_save {
+    flex: 1;
+    padding: 0.52vw 1.25vw;
+    border-radius: 5.21vw;
+    border: none;
+    background: #cfffff;
+    color: #111;
+    font-size: 0.73vw;
+    cursor: pointer;
+}
+
+.AddProductPanel_cancel {
+    flex: 1;
+    padding: 0.52vw 1.25vw;
+    border-radius: 5.21vw;
+    border: 0.05vw solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    font-size: 0.73vw;
+    cursor: pointer;
+}
+/* PRODUCT PREVIEW */
+.ProductPreviewOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 200;
+    animation: fadeIn 0.3s ease;
+}
+
+.ProductPreviewWrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 201;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease;
+}
+
+.ProductPreview_close {
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    width: 2.6vw;
+    height: 2.6vw;
+    background: rgba(39, 39, 39, 1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5vw;
+    cursor: pointer;
+    z-index: 202;
+    transition: all 0.3s ease;
+}
+
+.ProductPreview_close:hover {
+    background: rgba(60, 60, 60, 1);
+    transform: rotate(90deg);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+/* ========================================
+   TABLET (768px - 1024px)
+======================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ProductsPage {
+        width: 100%;
+        min-height: 100vh;
+        background-color: var(--clr-background);
+    }
+
+    .ProductsPage_container {
+        display: flex;
+        width: 100%;
+        min-height: calc(100vh - 6vw);
+        padding-bottom: 2vw;
+    }
+
+    .ProductsPage_main {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .ProductsPage_content {
+        width: 100%;
+        background-color: var(--clr-dark-bg);
+        border-radius: 1.37vw;
+        padding: 2.75vw;
+    }
+
+    /* HEADER */
+    .ProductsPage_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2.75vw;
+    }
+
+    .ProductsPage_title {
+        font-size: 4.67vw; /* 34px */
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--clr-white);
+        margin: 0;
+    }
+
+    .ProductsPage_actions {
+        display: flex;
+        gap: 1.37vw;
+        align-items: center;
+    }
+
+    /* Export Button */
+    .ProductsPage_export-wrapper {
+        position: relative;
+    }
+
+    .ProductsPage_export {
+        width: 30vw; /* 160px */
+        height: 4.95vw; /* 36px */
+        background-color: var(--clr-white);
+        border-radius: 4.4vw;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2.2vw;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .ProductsPage_export:hover {
+        background-color: rgba(245, 245, 245, 1);
+    }
+
+    .ProductsPage_export svg {
+        width: 2.06vw; /* 15px */
+        height: 2.06vw;
+    }
+
+    .ProductsPage_export_button {
+        font-size: 1.92vw;
+        gap: 1.1vw;
+        align-items: center;
+        display: flex;
+    }
+
+    .ProductsPage_export-dropdown {
+        position: absolute;
+        top: 5.5vw;
+        right: 0;
+        width: 20.33vw; /* 148px */
+        background: rgba(255, 255, 255, 1);
+        border-radius: 1.37vw;
+        padding: 1.1vw 0;
+        box-shadow: 0 0.82vw 2.2vw rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        overflow: hidden;
+    }
+
+    .ProductsPage_export-item {
+        width: 100%;
+        height: 4.67vw; /* 34px */
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 1.1vw;
+        padding: 0 1.65vw;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+        text-align: left;
+    }
+
+    .ProductsPage_export-item:hover {
+        background: rgba(240, 240, 240, 1);
+        color: rgba(0, 0, 0, 1);
+    }
+
+    .ProductsPage_export-item svg {
+        width: 2.2vw; /* 16px */
+        height: 2.2vw;
+        flex-shrink: 0;
+    }
+
+    /* Add Button */
+    .ProductsPage_add {
+        width: 4.95vw; /* 36px */
+        height: 4.95vw;
+        background-color: rgba(205, 255, 255, 1);
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .ProductsPage_add:hover {
+        opacity: 0.9;
+    }
+
+    .ProductsPage_add svg {
+        width: 2.47vw; /* 18px */
+        height: 2.47vw;
+    }
+
+    /* CONTROLS */
+    .ProductsPage_controls {
+        display: flex;
+        gap: 1.65vw;
+        margin-bottom: 2.2vw;
+    }
+
+    /* SEARCH */
+    .ProductsPage_search-wrapper {
+        position: relative;
+        flex: 1;
+    }
+
+    .ProductsPage_search {
+        flex: 1;
+        height: 5.22vw; /* 38px */
+        background-color: rgba(64, 64, 64, 1);
+        border-radius: 0.82vw;
+        display: flex;
+        align-items: center;
+        gap: 1.1vw;
+        padding: 0 2.2vw;
+        transition: border-radius 0.2s ease;
+    }
+
+    .ProductsPage_search-wrapper:has(.ProductsPage_search-history) .ProductsPage_search {
+        border-radius: 0.82vw 0.82vw 0 0;
+    }
+
+    .ProductsPage_search svg {
+        width: 2.47vw; /* 18px */
+        height: 2.47vw;
+        flex-shrink: 0;
+    }
+
+    .ProductsPage_search_input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        color: var(--clr-white);
+    }
+
+    .ProductsPage_search_input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* История поиска */
+    .ProductsPage_search-history {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 5.22vw;
+        background: rgba(51, 51, 51, 1);
+        border-radius: 0 0 0.82vw 0.82vw;
+        overflow: hidden;
+        z-index: 150;
+        box-shadow: 0 1.1vw 2.2vw rgba(0, 0, 0, 0.3);
+    }
+
+    .ProductsPage_search-history-item {
+        width: 100%;
+        text-align: left;
+        padding: 1.37vw 1.65vw;
+        background: transparent;
+        border: none;
+        color: var(--clr-white);
+        font-size: 1.92vw; /* 14px */
+        cursor: pointer;
+        border-bottom: 0.14vw solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ProductsPage_search-history-item:first-child {
+        background: rgba(90, 90, 90, 1);
+    }
+
+    .ProductsPage_search-history-item:last-child {
+        border-bottom: none;
+    }
+
+    .ProductsPage_search-history-item:hover {
+        background: rgba(80, 80, 80, 1);
+    }
+
+    /* FILTERS BUTTON */
+    /* FILTERS BUTTON - только иконка */
+    .ProductsPage_filters-wrap {
+        position: relative;
+    }
+
+    .ProductsPage_filters {
+        width: 10.22vw; /* 38px - только иконка */
+        height: 5.22vw;
+        background-color: rgba(64, 64, 64, 1);
+        border-radius: 0.82vw;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+        font-size: 0; /* скрываем текст */
+        font-weight: 400;
+        color: transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .ProductsPage_filters:hover {
+        background-color: rgba(74, 74, 74, 1);
+    }
+
+    .ProductsPage_filters svg {
+        width: 2.47vw; /* 18px */
+        height: 2.47vw;
+    }
+
+    /* FILTERS DROPDOWN - 335x465px */
+    .FiltersDropdown {
+        position: absolute;
+        top: 6vw;
+        right: 0;
+        width: 46.02vw; /* 335px at 728px */
+        height: 63.87vw; /* 465px at 728px */
+        background: #ffffff;
+        border-radius: 1.37vw;
+        padding: 2.75vw 2.2vw 2.2vw;
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        z-index: 150;
+        box-shadow: 0 1.1vw 2.75vw rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .FiltersDropdown_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 2.2vw;
+    }
+
+    .FiltersDropdown_header h2 {
+        font-size: 3.3vw; /* 24px */
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .FiltersDropdown_close {
+        border: none;
+        background: transparent;
+        font-size: 2.47vw; /* 18px */
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2.2vw;
+        overflow-y: auto;
+        padding-right: 0.55vw;
+    }
+
+    /* Кастомный скроллбар */
+    .FiltersDropdown_body::-webkit-scrollbar {
+        width: 0.82vw;
+    }
+
+    .FiltersDropdown_body::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 0.41vw;
+    }
+
+    .FiltersDropdown_body::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 0.41vw;
+    }
+
+    .FiltersDropdown_body::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    .FiltersDropdown_group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.82vw;
+    }
+
+    .FiltersDropdown_group label {
+        font-size: 1.92vw; /* 14px */
+        color: rgba(0, 0, 0, 0.4);
+    }
+
+    .FiltersDropdown_select--wrapper {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_select {
+        height: 4.4vw; /* 32px */
+        border-radius: 0.82vw;
+        background: #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.65vw;
+        font-size: 1.92vw; /* 14px */
+        color: #000;
+        font-weight: 400;
+    }
+
+    .FiltersDropdown_select:hover {
+        background: #d5d5d5;
+    }
+
+    .FiltersDropdown_select img {
+        width: 2.75vw; /* 20px */
+        height: 2.75vw;
+        object-fit: contain;
+        pointer-events: none;
+        transition: transform 0.2s ease;
+    }
+
+    .FiltersDropdown_select--wrapper:hover .FiltersDropdown_select img {
+        transform: rotate(180deg);
+    }
+
+    .FiltersDropdown_selected-text {
+        pointer-events: none;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .FiltersDropdown_native {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        font-size: 1.92vw;
+        border: none;
+        background: transparent;
+    }
+
+    /* Даты */
+    .FiltersDropdown_date-row {
+        display: flex;
+        gap: 1.65vw;
+    }
+
+    .FiltersDropdown_date {
+        flex: 1;
+        height: 4.4vw; /* 32px */
+        border-radius: 0.82vw;
+        background: #e5e5e5;
+        display: flex;
+        align-items: center;
+        padding: 0 1.37vw;
+        gap: 0.82vw;
+        font-size: 1.92vw; /* 14px */
+        color: #000;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_date > * {
+        pointer-events: none;
+    }
+
+    .FiltersDropdown_date span {
+        flex: 1;
+    }
+
+    .FiltersDropdown_date img {
+        width: 2.75vw; /* 20px */
+        height: 2.75vw;
+        object-fit: contain;
+        pointer-events: none;
+    }
+
+    .FiltersDate {
+        display: flex;
+        align-items: center;
+        gap: 0.82vw;
+        pointer-events: none;
+    }
+
+    .FiltersDate_input {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .FiltersDate_input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    /* Диапазон цены */
+    .FiltersDropdown_range {
+        position: relative;
+        margin-top: 0.82vw;
+        height: 2.75vw;
+    }
+
+    .FiltersDropdown_range-track {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 0.27vw;
+        transform: translateY(-50%);
+        border-radius: 0.27vw;
+        background: rgba(229, 229, 229, 1);
+    }
+
+    .FiltersDropdown_range-track-active {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border-radius: 0.27vw;
+        background: rgba(205, 255, 255, 1);
+    }
+
+    .FiltersDropdown_thumb {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        pointer-events: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .FiltersDropdown_thumb::-webkit-slider-thumb {
+        pointer-events: auto;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 2.47vw; /* 18px */
+        height: 2.47vw;
+        border-radius: 50%;
+        background: rgba(205, 255, 255, 1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_thumb::-moz-range-thumb {
+        width: 2.47vw;
+        height: 2.47vw;
+        border-radius: 50%;
+        background: rgba(205, 255, 255, 1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_range input[type='range'] {
+        width: 100%;
+    }
+
+    .FiltersDropdown_range-labels {
+        margin-top: 0.82vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.92vw; /* 14px */
+        color: #000;
+    }
+
+    .FiltersDropdown_footer {
+        margin-top: 2.2vw;
+        padding-top: 2.2vw;
+        border-top: 0.14vw solid rgba(0, 0, 0, 0.1);
+    }
+
+    .FiltersDropdown_save {
+        width: 100%;
+        height: 4.95vw; /* 36px */
+        border-radius: 0.82vw;
+        border: none;
+        background: #cdffff;
+        color: #000;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .FiltersDropdown_save:hover {
+        background: #b3e5e5;
+    }
+
+
+    /* ==================================
+       ADD PRODUCT PANEL
+    ================================== */
+    .AddProductOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 90;
+    }
+
+    .AddProductPanel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw; /* На весь экран */
+        height: 100vh;
+        background: #170c0c;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        padding: 4.12vw 2.49vw; /* 30px 40px */
+        box-shadow: none;
+        overflow: hidden;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .AddProductPanel_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 3.3vw; /* 24px */
+    }
+
+    .AddProductPanel_header h2 {
+        font-size: 3.44vw; /* 25px */
+        font-weight: 400;
+        margin: 0;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    .AddProductPanel_close {
+        background: transparent;
+        border: none;
+        color: #ffffff80;
+        font-size: 2.2vw; /* 16px */
+        cursor: pointer;
+        padding: 1.1vw;
+    }
+
+    .AddProductPanel_body {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 1.37vw;
+    }
+
+    .AddProductPanel_body::-webkit-scrollbar {
+        width: 1.1vw;
+    }
+
+    .AddProductPanel_body::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .AddProductPanel_body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 0.55vw;
+    }
+
+    /* ДВЕ КОЛОНКИ */
+    .AddProductPanel_grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 1.3vw; /* 20px */
+        align-items: flex-start;
+    }
+
+    .AddProductPanel_col {
+        display: flex;
+        flex-direction: column;
+        gap: 2.75vw; /* 20px */
+    }
+
+    .AddProductPanel_block {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1vw; /* 8px */
+    }
+
+    .AddProductPanel_block_title {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        margin: 0;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    .AddProductPanel_group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.1vw; /* 8px */
+    }
+
+    .AddProductPanel_group label {
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    .AddProductPanel_block--cert {
+        margin-top: 2.75vw;
+    }
+
+    .AddProductPanel_block--extra {
+        margin-top: 2.75vw;
+    }
+
+    /* Поля ввода */
+    .field-input,
+    .field-textarea,
+    .AddProductPanel_upload,
+    .AddProductPanel_select-btn {
+        background: rgba(64, 64, 64, 1);
+        border-radius: 0.96vw; /* 7px */
+        border: 0.14vw solid rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 1.92vw; /* 14px */
+        padding: 1.37vw 2.06vw; /* 10px 15px */
+        outline: none;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -0.03em;
+    }
+
+    .field-input {
+        height: 5.22vw; /* 38px */
+    }
+
+    .field-textarea {
+        min-height: 15.38vw; /* 112px */
+        resize: vertical;
+    }
+
+    .AddProductPanel_subtitle {
+        margin: 0;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        color: white;
+        letter-spacing: -0.03em;
+    }
+
+    .field-textarea--description {
+        height: 30.77vw; /* 224px */
+        min-height: 30.77vw;
+        max-height: 30.77vw;
+        resize: none;
+        background: rgba(30, 13, 13, 1);
+        border-radius: 1.1vw;
+        border: 1.1vw solid rgba(64, 64, 64, 1);
+        padding: 2.06vw;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Загрузка фото */
+    .AddProductPanel_upload {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 15.38vw; /* 112px */
+        text-align: center;
+        cursor: pointer;
+        flex-direction: column;
+    }
+
+    .AddProductPanel_upload--main {
+        height: 15.38vw; /* 112px */
+    }
+
+    .AddProductPanel_upload_input {
+        display: none;
+    }
+
+    .AddProductPanel_upload_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.37vw;
+    }
+
+    .AddProductPanel_upload_content img {
+        width: 4.95vw; /* 36px */
+        height: 4.95vw;
+        object-fit: contain;
+    }
+
+    .AddProductPanel_upload span {
+        font-size: 1.65vw; /* 12px */
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .AddProductPanel_upload span button {
+        background: none;
+        border: none;
+        color: #cfffff;
+        cursor: pointer;
+        padding: 0;
+        font-size: inherit;
+        text-decoration: underline;
+    }
+
+    /* Превью фото */
+    .AddProductPanel_photos_row {
+        margin-top: 1.37vw;
+        display: flex;
+        gap: 1.37vw;
+        flex-wrap: wrap;
+    }
+
+    .AddProductPanel_photo_small {
+        position: relative;
+        flex: 0 0 auto;
+        width: 11.26vw; /* 82px */
+        height: 11.26vw;
+        border-radius: 0.96vw;
+        background: rgba(64, 64, 64, 1);
+        overflow: hidden;
+    }
+
+    .AddProductPanel_photo_img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .AddProductPanel_photo_actions {
+        position: absolute;
+        left: 1.1vw;
+        right: 1.1vw;
+        bottom: 1.1vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .AddProductPanel_icon-btn {
+        width: 2.75vw; /* 20px */
+        height: 2.75vw;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .AddProductPanel_icon-btn img {
+        width: 1.65vw; /* 12px */
+        height: 1.65vw;
+        object-fit: contain;
+    }
+
+    /* Inline поля */
+    .AddProductPanel_inline {
+        display: flex;
+        gap: 1.37vw;
+    }
+
+    .AddProductPanel_inline--2 > .AddProductPanel_group {
+        flex: 1;
+        max-width: 22.1vw;
+    }
+
+    /* Кнопка выбора */
+    .AddProductPanel_select-btn {
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 0.55vw;
+        height: 5.22vw; /* 38px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .AddProductPanel_block_title--accent {
+        font-size: 2.75vw; /* 20px */
+        font-weight: 400;
+        color: white;
+        margin-bottom: 1.37vw;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    /* Ссылки */
+    .AddProductPanel_link {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.92vw; /* 14px */
+        cursor: pointer;
+        padding: 0;
+        align-self: flex-start;
+        text-decoration: underline;
+        text-underline-offset: 0.55vw;
+    }
+
+    /* Bottom row - две колонки */
+    .AddProductPanel_bottom-row {
+        margin-bottom: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.3vw;
+        margin-top: 2.75vw;
+        padding-bottom: 4vw;
+    }
+
+    .AddProductPanel_upload--doc {
+        justify-content: flex-start;
+        gap: 1.37vw;
+        padding-left: 2.06vw;
+        height: 5.22vw; /* 38px */
+        flex-direction: row;
+    }
+
+    .AddProductPanel_upload_icon {
+        width: 2.75vw; /* 20px */
+        height: 2.75vw;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .AddProductPanel_bottom-row .AddProductPanel_group {
+        flex: 1;
+    }
+
+    .AddProductPanel_row {
+        display: flex;
+        gap: 1.3vw;
+        margin-top: 2.75vw;
+    }
+
+    .AddProductPanel_row .AddProductPanel_block {
+        flex: 1;
+    }
+
+    /* Footer */
+    .AddProductPanel_footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 2.75vw;
+        padding-top: 2.75vw;
+        border-top: 0.14vw solid rgba(255, 255, 255, 0.12);
+        margin-top: 2.75vw;
+    }
+
+    .AddProductPanel_save {
+        flex: 1;
+        padding: 2.47vw 3.3vw; /* 18px */
+        border-radius: 5.49vw; /* 40px */
+        border: none;
+        background: #cfffff;
+        color: #111;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        height: 5.77vw; /* 42px */
+        letter-spacing: -0.03em;
+    }
+
+    .AddProductPanel_save:hover {
+        background: #b3e5e5;
+    }
+
+    .AddProductPanel_cancel {
+        flex: 1;
+        padding: 2.47vw 3.3vw;
+        border-radius: 5.49vw; /* 40px */
+        border: 0.14vw solid rgba(255, 255, 255, 0.3);
+        background: transparent;
+        color: #fff;
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+        height: 5.77vw; /* 42px */
+        letter-spacing: -0.03em;
+    }
+
+    .AddProductPanel_cancel:hover {
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ==================================
+       PRODUCT PREVIEW
+    ================================== */
+    .ProductPreviewOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 200;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .ProductPreviewWrapper {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 201;
+        max-width: 95vw;
+        max-height: 95vh;
+        overflow-y: auto;
+        animation: slideIn 0.3s ease;
+    }
+
+    .ProductPreview_close {
+        position: fixed;
+        top: 2.75vw;
+        right: 2.75vw;
+        width: 5.5vw; /* 40px */
+        height: 5.5vw;
+        background: rgba(39, 39, 39, 1);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 3.3vw; /* 24px */
+        cursor: pointer;
+        z-index: 202;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ProductPreview_close:hover {
+        background: rgba(60, 60, 60, 1);
+        transform: rotate(90deg);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -48%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+/* ========================================
+   MOBILE (max-width: 767px)
+======================================== */
+@media (max-width: 767px) {
+    .ProductsPage {
+        width: 100%;
+        min-height: 50vh;
+        background-color: var(--clr-background);
+        padding: 0;
+    }
+
+    .ProductsPage_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 50vh;
+
+    }
+
+    .ProductsPage_main {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .ProductsPage_content {
+        width: 100%;
+        background-color: var(--clr-dark-bg);
+        border-radius: 3.125vw; /* 10px */
+        padding: 3vw; /* 16px */
+    }
+
+    /* ===== HEADER ===== */
+    .ProductsPage_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5vw;
+        gap: 3.125vw;
+    }
+
+    .ProductsPage_title {
+        font-size: 7.5vw; /* 24px */
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: var(--clr-white);
+        margin: 0;
+    }
+
+    .ProductsPage_actions {
+        display: flex;
+        gap: 2.5vw;
+        align-items: center;
+    }
+
+    /* Export Button - КРУГЛАЯ КНОПКА */
+    .ProductsPage_export-wrapper {
+        position: relative;
+    }
+
+    .ProductsPage_export {
+        width: 9.375vw; /* 30px */
+        height: 9.375vw;
+        background-color: var(--clr-white);
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        cursor: pointer;
+        transition: background 0.2s ease, opacity 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .ProductsPage_export:hover {
+        opacity: 0.9;
+        background-color: rgba(245, 245, 245, 1);
+    }
+
+    /* Контейнер с текстом и Export иконкой */
+    .ProductsPage_export_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+
+    /* Показываем ТОЛЬКО иконку Export */
+    .ProductsPage_export_button img {
+        display: block;
+        width: 5vw; /* 16px */
+        height: 5vw;
+        object-fit: contain;
+    }
+
+    /* Скрываем текст "Экспортировать" */
+    .ProductsPage_export_button {
+        font-size: 0;
+        color: transparent;
+    }
+
+    /* Скрываем Galochka (стрелку dropdown) */
+    .ProductsPage_export > img {
+        display: none !important;
+    }
+
+    /* Dropdown */
+    .ProductsPage_export-dropdown {
+        position: absolute;
+        top: 10vw;
+        right: 0;
+        width: 43.75vw; /* 140px */
+        background: rgba(255, 255, 255, 1);
+        border-radius: 3.125vw;
+        padding: 2.5vw 0;
+        box-shadow: 0 1.875vw 5vw rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        overflow: hidden;
+    }
+
+    .ProductsPage_export-item {
+        width: 100%;
+        height: 9.375vw; /* 30px */
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 2.5vw;
+        padding: 0 3.75vw;
+        font-size: 3.75vw; /* 12px */
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+        transition: background 0.2s ease;
+        text-align: left;
+    }
+
+    .ProductsPage_export-item:hover {
+        background: rgba(240, 240, 240, 1);
+    }
+
+    .ProductsPage_export-item svg {
+        width: 4.375vw; /* 14px */
+        height: 4.375vw;
+        flex-shrink: 0;
+    }
+
+    /* Add Button */
+    .ProductsPage_add {
+        width: 9.375vw; /* 30px */
+        height: 9.375vw;
+        background-color: rgba(205, 255, 255, 1);
+        border-radius: 50%;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .ProductsPage_add:hover {
+        opacity: 0.9;
+    }
+
+    .ProductsPage_add svg {
+        width: 5vw; /* 16px */
+        height: 5vw;
+    }
+
+    /* ===== CONTROLS ===== */
+    .ProductsPage_controls {
+        display: flex;
+        gap: 3.125vw;
+        margin-bottom: 5vw;
+    }
+
+    /* SEARCH - 248px width */
+    .ProductsPage_search-wrapper {
+        position: relative;
+        flex: 0 0 69.5vw; /* 248px at 320 */
+        max-width: 69.5vw;
+    }
+
+    .ProductsPage_search {
+        width: 100%;
+        height: 10vw; /* 32px */
+        background-color: rgba(64, 64, 64, 1);
+        border-radius: 2.5vw;
+        display: flex;
+        align-items: center;
+        gap: 2.5vw;
+        padding: 0 3.75vw;
+        transition: border-radius 0.2s ease;
+    }
+
+    .ProductsPage_search-wrapper:has(.ProductsPage_search-history) .ProductsPage_search {
+        border-radius: 2.5vw 2.5vw 0 0;
+    }
+
+    .ProductsPage_search svg {
+        width: 5vw; /* 16px */
+        height: 5vw;
+        flex-shrink: 0;
+    }
+
+    .ProductsPage_search_input {
+        width: 100%;
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 4.375vw; /* 14px */
+        font-weight: 400;
+        color: var(--clr-white);
+    }
+
+    .ProductsPage_search_input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* История поиска */
+    .ProductsPage_search-history {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 10vw;
+        background: rgba(51, 51, 51, 1);
+        border-radius: 0 0 2.5vw 2.5vw;
+        overflow: hidden;
+        z-index: 150;
+        box-shadow: 0 2.5vw 5vw rgba(0, 0, 0, 0.3);
+    }
+
+    .ProductsPage_search-history-item {
+        width: 100%;
+        text-align: left;
+        padding: 2.5vw 3.75vw;
+        background: transparent;
+        border: none;
+        color: var(--clr-white);
+        font-size: 4.375vw; /* 14px */
+        cursor: pointer;
+        border-bottom: 0.31vw solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ProductsPage_search-history-item:first-child {
+        background: rgba(90, 90, 90, 1);
+    }
+
+    .ProductsPage_search-history-item:last-child {
+        border-bottom: none;
+    }
+
+    .ProductsPage_search-history-item:hover {
+        background: rgba(80, 80, 80, 1);
+    }
+
+    /* FILTERS BUTTON - остается 32px */
+    .ProductsPage_filters-wrap {
+        position: relative;
+        flex: 0 0 10vw; /* 32px */
+    }
+
+    .ProductsPage_filters {
+        width: 10vw; /* 32px */
+        height: 10vw;
+        background-color: rgba(64, 64, 64, 1);
+        border-radius: 2.5vw;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-size: 0;
+        color: transparent;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .ProductsPage_filters:hover {
+        background-color: rgba(74, 74, 74, 1);
+    }
+
+    .ProductsPage_filters svg {
+        width: 5vw; /* 16px */
+        height: 5vw;
+    }
+
+    /* ===== FILTERS DROPDOWN - 300x430px ===== */
+    .FiltersDropdown {
+        position: fixed;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 82.3vw; /* 300px at 320 */
+        height: 120.625vw; /* 386px at 320 */
+        background: #ffffff;
+        border-radius: 3.125vw; /* 10px */
+        padding: 4.375vw 3.125vw 3.125vw; /* 14px 10px 10px */
+        display: flex;
+        flex-direction: column;
+        color: #000;
+        z-index: 250;
+        box-shadow: 0 2.5vw 6.25vw rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+
+    /* HEADER - Заголовок "Фильтры" */
+    .FiltersDropdown_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 3.75vw; /* 12px */
+    }
+
+    .FiltersDropdown_header h2 {
+        font-size: 5.625vw; /* 18px */
+        font-weight: 400;
+        margin: 0;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    .FiltersDropdown_close {
+        border: none;
+        background: transparent;
+        font-size: 5vw; /* 16px */
+        cursor: pointer;
+        padding: 0;
+        width: 6.25vw; /* 20px */
+        height: 6.25vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* BODY - БЕЗ СКРОЛЛА */
+    .FiltersDropdown_body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 3.125vw; /* 10px */
+        overflow: visible;
+    }
+
+    /* GROUP - каждая группа фильтров */
+    .FiltersDropdown_group {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25vw; /* 4px */
+    }
+
+    .FiltersDropdown_group label {
+        font-size: 4.375vw; /* 14px */
+        color: rgba(0, 0, 0, 0.4);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 0;
+    }
+
+    /* SELECT - Категория и Статус (280x38px) */
+    .FiltersDropdown_select--wrapper {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_select {
+        height: 11.875vw; /* 38px */
+        border-radius: 2.188vw; /* 7px */
+        background: #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3.125vw; /* 10px */
+        font-size: 4.375vw; /* 14px */
+        color: #000;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+    }
+
+    .FiltersDropdown_select:hover {
+        background: #d5d5d5;
+    }
+
+    .FiltersDropdown_select img {
+        width: 5vw; /* 16px */
+        height: 5vw;
+        object-fit: contain;
+        pointer-events: none;
+        transition: transform 0.2s ease;
+    }
+
+    .FiltersDropdown_select--wrapper:hover .FiltersDropdown_select img {
+        transform: rotate(180deg);
+    }
+
+    .FiltersDropdown_selected-text {
+        pointer-events: none;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .FiltersDropdown_native {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        font-size: 4.375vw;
+        border: none;
+        background: transparent;
+    }
+
+    /* DATE ROW - две даты (135x38px каждая) */
+    .FiltersDropdown_date-row {
+        display: flex;
+        gap: 3.125vw; /* 10px */
+    }
+
+    .FiltersDropdown_date {
+        flex: 1;
+        width: 42.188vw; /* 135px */
+        height: 11.875vw; /* 38px */
+        border-radius: 2.188vw; /* 7px */
+        background: #e5e5e5;
+        display: flex;
+        align-items: center;
+        padding: 0 3.125vw; /* 10px */
+        gap: 1.563vw; /* 5px */
+        font-size: 4.375vw; /* 14px */
+        color: #000;
+        position: relative;
+        cursor: pointer;
+        letter-spacing: -0.03em;
+    }
+
+    .FiltersDropdown_date > * {
+        pointer-events: none;
+    }
+
+    .FiltersDropdown_date span {
+        flex: 1;
+        font-size: 4.375vw;
+    }
+
+    .FiltersDropdown_date img {
+        width: 5vw; /* 16px */
+        height: 5vw;
+        object-fit: contain;
+        pointer-events: none;
+    }
+
+    .FiltersDate {
+        display: flex;
+        align-items: center;
+        gap: 1.563vw;
+        pointer-events: none;
+    }
+
+    .FiltersDate_input {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .FiltersDate_input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    /* PRICE RANGE - слайдер цены */
+    .FiltersDropdown_range {
+        position: relative;
+        margin-top: 1.563vw; /* 5px */
+        height: 4.688vw; /* 15px */
+        padding: 0;
+    }
+
+    .FiltersDropdown_range-track {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 0.625vw; /* 2px */
+        transform: translateY(-50%);
+        border-radius: 0.625vw;
+        background: rgba(229, 229, 229, 1);
+    }
+
+    .FiltersDropdown_range-track-active {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        border-radius: 0.625vw;
+        background: rgba(205, 255, 255, 1);
+    }
+
+    .FiltersDropdown_thumb {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        pointer-events: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .FiltersDropdown_thumb::-webkit-slider-thumb {
+        pointer-events: auto;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 4.375vw; /* 14px */
+        height: 4.375vw;
+        border-radius: 50%;
+        background: rgba(205, 255, 255, 1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_thumb::-moz-range-thumb {
+        width: 4.375vw;
+        height: 4.375vw;
+        border-radius: 50%;
+        background: rgba(205, 255, 255, 1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .FiltersDropdown_range input[type='range'] {
+        width: 100%;
+    }
+
+    /* Price labels - 2050₽ и 10000₽ */
+    .FiltersDropdown_range-labels {
+        margin-top: 1.25vw; /* 4px */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 4.375vw; /* 14px */
+        color: #000;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    /* FOOTER - кнопка "Применить" (280x42px) */
+    .FiltersDropdown_footer {
+        margin-top: 3.125vw; /* 10px */
+        padding-top: 0;
+        border-top: none;
+    }
+
+    .FiltersDropdown_save {
+        width: 100%;
+        height: 13.125vw; /* 42px */
+        border-radius: 2.188vw; /* 7px */
+        border: none;
+        background: #cdffff;
+        color: #000;
+        font-size: 4.375vw; /* 14px */
+        font-weight: 400;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+    }
+
+    .FiltersDropdown_save:hover {
+        background: #b3e5e5;
+    }
+
+    /* Overlay для фильтров */
+    .FiltersDropdown::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: white;
+        z-index: -1;
+    }
+    .AddProductOverlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 90;
+    }
+
+    /* Panel - на весь экран */
+    .AddProductPanel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #170c0c;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        padding: 5vw; /* 16px */
+        box-shadow: none;
+        overflow: hidden;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* HEADER */
+    .AddProductPanel_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5vw; /* 16px */
+        flex-shrink: 0;
+    }
+
+    .AddProductPanel_header h2 {
+        font-size: 6.25vw; /* 20px at 320 */
+        font-weight: 500;
+        margin: 0;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    .AddProductPanel_close {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 4.375vw; /* 14px */
+        cursor: pointer;
+        padding: 2.5vw;
+        width: 4.375vw;
+        height: 4.375vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .AddProductPanel_close svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* BODY - вертикальный скролл, ОДНА КОЛОНКА */
+    .AddProductPanel_body {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 1.25vw;
+    }
+
+    .AddProductPanel_body::-webkit-scrollbar {
+        width: 1.25vw; /* 4px */
+    }
+
+    .AddProductPanel_body::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .AddProductPanel_body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 0.625vw;
+    }
+
+    /* ОДНА КОЛОНКА вместо двух */
+    .AddProductPanel_grid {
+        display: flex;
+        flex-direction: column;
+        gap: 5vw; /* 16px */
+    }
+
+    .AddProductPanel_col {
+        display: flex;
+        flex-direction: column;
+        gap: 5vw; /* 16px */
+        width: 100%;
+    }
+
+    .AddProductPanel_block {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5vw; /* 8px */
+    }
+
+    .AddProductPanel_block_title {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 4.375vw; /* 14px */
+        font-weight: 400;
+        margin: 0;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    .AddProductPanel_group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5vw; /* 8px */
+    }
+
+    .AddProductPanel_group label {
+        font-size: 4.375vw; /* 14px */
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    .AddProductPanel_block--cert {
+        margin-top: 5vw;
+    }
+
+    .AddProductPanel_block--extra {
+        margin-top: 5vw;
+    }
+
+    /* Поля ввода - 320x38px */
+    .field-input,
+    .field-textarea,
+    .AddProductPanel_upload,
+    .AddProductPanel_select-btn {
+        background: rgba(64, 64, 64, 1);
+        border-radius: 2.188vw; /* 7px */
+        border: 0.31vw solid rgba(255, 255, 255, 0.12);
+        color: #fff;
+        font-size: 4.375vw; /* 14px */
+        padding: 3.125vw 4.688vw; /* 10px 15px */
+        outline: none;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: -0.03em;
+        width: 100%;
+    }
+
+    .field-input {
+        height: 11.875vw; /* 38px */
+    }
+
+    .field-textarea {
+        min-height: 28.125vw; /* 90px */
+        resize: vertical;
+    }
+
+    .AddProductPanel_subtitle {
+        margin: 0;
+        font-size: 4.375vw; /* 14px */
+        font-weight: 400;
+        color: white;
+        letter-spacing: -0.03em;
+    }
+
+    .field-textarea--description {
+        height: 56.563vw; /* 181px */
+        min-height: 56.563vw;
+        max-height: 56.563vw;
+        resize: none;
+        background: rgba(30, 13, 13, 1);
+        border-radius: 2.5vw;
+        border: 2.5vw solid rgba(64, 64, 64, 1);
+        padding: 3.125vw;
+    }
+
+    .field-input::placeholder,
+    .field-textarea::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Загрузка фото - 320x112px */
+    .AddProductPanel_upload {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35vw; /* 112px */
+        text-align: center;
+        cursor: pointer;
+        flex-direction: column;
+    }
+
+    .AddProductPanel_upload--main {
+        height: 35vw; /* 112px */
+    }
+
+    .AddProductPanel_upload_input {
+        display: none;
+    }
+
+    .AddProductPanel_upload_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3.125vw;
+    }
+
+    .AddProductPanel_upload_content img {
+        width: 11.25vw; /* 36px */
+        height: 11.25vw;
+        object-fit: contain;
+    }
+
+    .AddProductPanel_upload span {
+        font-size: 3.75vw; /* 12px */
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .AddProductPanel_upload span button {
+        background: none;
+        border: none;
+        color: #cfffff;
+        cursor: pointer;
+        padding: 0;
+        font-size: inherit;
+        text-decoration: underline;
+    }
+
+    /* Превью фото - 100x82px */
+    .AddProductPanel_photos_row {
+        margin-top: 2.5vw;
+        display: flex;
+        gap: 2.5vw;
+        flex-wrap: wrap;
+    }
+
+    .AddProductPanel_photo_small {
+        position: relative;
+        flex: 0 0 auto;
+        width: 31.25vw; /* 100px */
+        height: 25.625vw; /* 82px */
+        border-radius: 2.188vw;
+        background: rgba(64, 64, 64, 1);
+        overflow: hidden;
+    }
+
+    .AddProductPanel_photo_img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .AddProductPanel_photo_actions {
+        position: absolute;
+        left: 2.5vw;
+        right: 2.5vw;
+        bottom: 2.5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .AddProductPanel_icon-btn {
+        width: 6.25vw; /* 20px */
+        height: 6.25vw;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .AddProductPanel_icon-btn img {
+        width: 3.75vw; /* 12px */
+        height: 3.75vw;
+        object-fit: contain;
+    }
+
+    /* Inline поля - две колонки 155px каждая */
+    .AddProductPanel_inline {
+        display: flex;
+        gap: 3.125vw; /* 10px */
+    }
+
+    .AddProductPanel_inline--2 > .AddProductPanel_group {
+        flex: 1;
+        max-width: 48.438vw; /* 155px */
+    }
+
+    /* Кнопка выбора - 320x38px */
+    .AddProductPanel_select-btn {
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        text-decoration: underline;
+        text-underline-offset: 1.25vw;
+        height: 11.875vw; /* 38px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .AddProductPanel_block_title--accent {
+        font-size: 5.625vw; /* 18px */
+        font-weight: 400;
+        color: white;
+        margin-bottom: 2.5vw;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+    }
+
+    /* Ссылки */
+    .AddProductPanel_link {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 4.375vw; /* 14px */
+        cursor: pointer;
+        padding: 0;
+        align-self: flex-start;
+        text-decoration: underline;
+        text-underline-offset: 0.625vw;
+    }
+
+    /* Нижний row: тип/вид */
+    .AddProductPanel_bottom-row {
+        margin-bottom: 5vw;
+        display: flex;
+        flex-direction: column;
+        gap: 11vw;
+        margin-top: 11vw;
+    }
+
+    .AddProductPanel_upload--doc {
+        justify-content: flex-start;
+        gap: 2.5vw;
+        padding-left: 2.5vw;
+        height: 11.875vw; /* 38px */
+        flex-direction: row;
+    }
+
+    .AddProductPanel_upload_icon {
+        width: 5vw; /* 16px */
+        height: 5vw;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .AddProductPanel_bottom-row .AddProductPanel_group {
+        flex: 1;
+        width: 100%;
+    }
+
+    .AddProductPanel_row {
+        display: flex;
+        flex-direction: column;
+        gap: 11vw;
+        margin-top: 11vw;
+    }
+
+    .AddProductPanel_row .AddProductPanel_block {
+        flex: 1;
+        width: 100%;
+    }
+
+    /* FOOTER - 320x42px кнопка */
+    .AddProductPanel_footer {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5vw;
+        padding-top: 3.125vw;
+        border-top: 0.31vw solid rgba(255, 255, 255, 0.12);
+        flex-shrink: 0;
+    }
+
+    .AddProductPanel_save {
+        flex: 1;
+        width: 100%;
+        height: 13.125vw; /* 42px */
+        padding: 5.625vw 0;
+        border-radius: 12.5vw; /* 40px */
+        border: none;
+        background: #cdffff;
+        color: #111;
+        font-size: 4.375vw; /* 14px */
+        cursor: pointer;
+        transition: background 0.2s ease;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+    }
+
+    .AddProductPanel_save:hover {
+        background: #c8ff00;
+        border: 0.31vw solid #ffffff;
+    }
+
+    .AddProductPanel_cancel {
+        flex: 1;
+        width: 100%;
+        height: 13.125vw; /* 42px */
+        padding: 5.625vw 0;
+        border-radius: 12.5vw; /* 40px */
+        border: 0.31vw solid rgba(255, 255, 255, 0.3);
+        background: transparent;
+        color: #fff;
+        font-size: 4.375vw; /* 14px */
+        cursor: pointer;
+        font-weight: 400;
+        letter-spacing: -0.03em;
+    }
+}

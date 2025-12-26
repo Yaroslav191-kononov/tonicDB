@@ -22,5 +22,18 @@ module.exports = (query) => {
    router.use('/invitation', require('./invitation')(query));
    router.use('/characteristic', require('./characteristic')(query));
    router.use('/blogSection', require('./blogSection')(query));
+   router.use('/contact-form', require('./contact-form')(query));
+   router.use('/cart-form', require('./cart-form')(query));
+   router.use('/adminProducts', require('./adminProducts')(query));
+   router.use('/products', require('./productGroup')(query));
+   router.use('/views', require('./views')(query));
+   router.use('/dashBoard', require('./dashBoard')(query));
+   router.use('/dataPercent', require('./dataPercent')(query));
+   router.use('/grapfic', require('./grapfic')(query));
+   router.use('/products', require('./productsToggle')(query));
+   router.use('/addProduct', require('./addProduct')(query));
+   router.use('/delete', require('./delete')(query));
+   router.use('/topProduct', require('./topProduct')(query));
+   router.use('/cerf', require('./cerf')(query));
 return router;
  };

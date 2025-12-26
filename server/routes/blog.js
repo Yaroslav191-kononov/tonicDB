@@ -11,7 +11,7 @@ module.exports = (query) => {
     }
     const rows = await query(`
       SELECT
-      a.title,a.tag, a.image, a.link, a.blog_id, a.type, a.date_published, a.excerpt,a.id, ba.title AS blog_title
+      a.title,a.tag, a.image, a.link, a.blog_id, a.type, a.date_published, a.excerpt,a.id, ba.title AS blog_title,a.category
       FROM articles a
       JOIN blog_articles ba ON a.blog_id = ba.id
       WHERE ba.id = ?
@@ -25,6 +25,7 @@ module.exports = (query) => {
       link: r.link || '',
       blog_id: r.blog_id,
       excerpt:r.excerpt,
+      category:r.category
     }));
     return {
       blog_title: rows[0]?.blog_title || "",

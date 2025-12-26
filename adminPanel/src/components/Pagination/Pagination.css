@@ -1,0 +1,243 @@
+/* src/components/Pagination/Pagination.css */
+.Pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Прижато к правому краю */
+    gap: 0.26vw; /* 5px */
+}
+
+.Pagination_arrow {
+    width: 1.56vw; /* 30px */
+    height: 1.56vw;
+    background-color: rgba(64, 64, 64, 1);
+    border: none;
+    border-radius: 0.26vw; /* 5px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Pagination_arrow:hover:not(:disabled) {
+    background-color: rgba(85, 85, 85, 1);
+}
+
+.Pagination_arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.Pagination_arrow svg {
+    width: 0.42vw; /* 8px */
+    height: 0.63vw; /* 12px */
+}
+
+.Pagination_btn {
+    width: 1.56vw; /* 30px */
+    height: 1.56vw;
+    background-color: rgba(64, 64, 64, 1);
+    border: none;
+    border-radius: 0.26vw; /* 5px */
+    font-size: 0.73vw; /* 14px */
+    font-weight: 400;
+    color: var(--clr-white);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Pagination_btn:hover {
+    background-color: rgba(85, 85, 85, 1);
+}
+
+.Pagination_btn_active {
+    background-color: rgba(205, 255, 255, 1);
+    color: rgba(0, 0, 0, 1);
+    font-weight: 500;
+}
+
+.Pagination_dots {
+    width: 1.56vw; /* 30px */
+    height: 1.56vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.73vw; /* 14px */
+    color: var(--clr-white);
+}
+
+/* ========================================
+   TABLET (768px - 1024px)
+======================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .Pagination {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Прижато к правому краю */
+        gap: 1.1vw; /* 8px */
+    }
+
+    .Pagination_arrow {
+        width: 4.4vw; /* 32px */
+        height: 4.4vw;
+        background-color: rgba(64, 64, 64, 1);
+        border: none;
+        border-radius: 0.69vw; /* 5px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .Pagination_arrow:hover:not(:disabled) {
+        background-color: rgba(85, 85, 85, 1);
+    }
+
+    .Pagination_arrow:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .Pagination_arrow svg {
+        width: 1.1vw; /* 8px */
+        height: 1.65vw; /* 12px */
+    }
+
+    .Pagination_btn {
+        width: 4.4vw; /* 32px */
+        height: 4.4vw;
+        background-color: rgba(64, 64, 64, 1);
+        border: none;
+        border-radius: 0.69vw; /* 5px */
+        font-size: 1.92vw; /* 14px */
+        font-weight: 400;
+        color: var(--clr-white);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        letter-spacing: -0.03em;
+    }
+
+    .Pagination_btn:hover {
+        background-color: rgba(85, 85, 85, 1);
+    }
+
+    .Pagination_btn_active {
+        background-color: rgba(205, 255, 255, 1);
+        color: rgba(0, 0, 0, 1);
+        font-weight: 500;
+    }
+
+    .Pagination_dots {
+        width: 4.4vw; /* 32px */
+        height: 4.4vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.92vw; /* 14px */
+        color: var(--clr-white);
+        letter-spacing: -0.03em;
+    }
+}
+/* ========================================
+   MOBILE (max-width: 767px) - Pagination
+======================================== */
+@media (max-width: 767px) {
+    .Pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* По центру на мобилке */
+        gap: 1.875vw; /* 6px */
+        margin-top: 5vw; /* 16px */
+        padding: 0 3.125vw;
+    }
+
+    /* Стрелки навигации */
+    .Pagination_arrow {
+        width: 10vw; /* 32px */
+        height: 10vw;
+        background-color: rgba(64, 64, 64, 1);
+        border: none;
+        border-radius: 1.563vw; /* 5px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .Pagination_arrow:hover:not(:disabled) {
+        background-color: rgba(85, 85, 85, 1);
+    }
+
+    .Pagination_arrow:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .Pagination_arrow svg {
+        width: 2.5vw; /* 8px */
+        height: 3.75vw; /* 12px */
+    }
+
+    /* Кнопки страниц */
+    .Pagination_btn {
+        width: 10vw; /* 32px */
+        height: 10vw;
+        background-color: rgba(64, 64, 64, 1);
+        border: none;
+        border-radius: 1.563vw; /* 5px */
+        font-size: 4.375vw; /* 14px */
+        font-weight: 400;
+        color: var(--clr-white);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        letter-spacing: -0.03em;
+        line-height: 110%;
+        flex-shrink: 0;
+    }
+
+    .Pagination_btn:hover {
+        background-color: rgba(85, 85, 85, 1);
+    }
+
+    .Pagination_btn_active {
+        background-color: rgba(205, 255, 255, 1);
+        color: rgba(0, 0, 0, 1);
+        font-weight: 500;
+    }
+
+    /* Троеточие */
+    .Pagination_dots {
+        width: 10vw; /* 32px */
+        height: 10vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4.375vw; /* 14px */
+        color: var(--clr-white);
+        letter-spacing: -0.03em;
+        flex-shrink: 0;
+    }
+
+    /* Компактный вариант - показываем меньше страниц */
+    .Pagination_btn:not(.Pagination_btn_active):nth-child(n+5):nth-last-child(n+3) {
+        display: none; /* Скрываем промежуточные страницы на мобилке */
+    }
+
+    /* Альтернативно: горизонтальный скролл если много страниц */
+    .Pagination--scrollable {
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding-bottom: 2.5vw;
+    }
+
+    .Pagination--scrollable::-webkit-scrollbar {
+        display: none;
+    }
+}
