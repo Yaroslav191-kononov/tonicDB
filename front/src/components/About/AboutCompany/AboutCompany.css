@@ -1,0 +1,249 @@
+.about {
+    padding: 5.21vw 0;
+    background: #1e0d0d;
+    color: #ffffff;
+}
+
+.about__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 2.92vw;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 0 0 2.6vw 0;
+}
+
+.about__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1vw;
+    align-items: start;
+}
+.about__mission-highlight {
+    background: #ffffff;
+    color: #1e0d0d;
+    display: inline;
+    line-height: 1.6;
+}
+.about__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2.45vw;
+}
+
+.about__subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 2.65vw;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 0;
+    max-width: 41.48vw;
+}
+
+.about__image-wrapper {
+    width: 100%;
+    max-width: 415px;
+    aspect-ratio: 415 / 286;
+    border-radius: 1.04vw;
+    overflow: hidden;
+}
+
+.about__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about__right {
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw;
+}
+
+.about__lead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.5vw;
+    line-height: 110%;
+    text-align: justify;
+    margin: 0;
+}
+
+.about__mission {
+    position: relative;
+    margin-top: 0;
+}
+
+.about__mission-strip {
+    position: absolute;
+    top: -1.2vw;
+    left: 0;
+    width: 26.4vw;
+    height: 1.2vw;
+    background: #ffffff;
+}
+
+.about__mission-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.1vw;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    margin: 0;
+    width: 27.17vw;
+}
+.about__inner--mobile {
+    display: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .about {
+        padding-top: 20vw;
+    }
+
+    .about__label {
+        font-size: 5.21vw;
+        margin-bottom: 4.17vw;
+    }
+
+    /* Скрываем десктоп, показываем мобильную */
+    .about__inner--desktop {
+        display: none;
+    }
+
+    .about__inner--mobile {
+        display: block;
+    }
+
+    .about__grid {
+        display: grid;
+        grid-template-columns: 46.74vw 46.74vw;
+        gap: 1.3vw;
+    }
+
+    .about__column {
+        display: flex;
+        flex-direction: column;
+        gap: 2.6vw;
+    }
+
+    .about__subtitle {
+        font-size: 4.3vw;
+        max-width: 98%;
+    }
+
+    .about__image-wrapper {
+        width: 46.74vw;
+        height: 28.13vw;
+        border-radius: 1.3vw;
+        max-width: none;
+    }
+
+    .about__lead {
+        font-size: 2.6vw;
+    }
+
+    .about__mission-strip {
+        top: -2.34vw;
+        width: 46.09vw;
+        height: 2.34vw;
+    }
+
+    .about__mission-text {
+        font-size: 1.82vw;
+       width: 100%;
+    }
+}
+
+
+
+/* Mobile */
+@media (max-width: 767px) {
+    .about {
+        padding-top: 20vw;
+        margin-bottom: 22vw;
+
+    }
+
+    .about__label {
+        font-size: 8.33vw;
+        font-weight: 600;
+        margin-bottom: 6vw;
+    }
+
+    .about__inner--desktop {
+        display: none;
+    }
+
+    .about__inner--mobile {
+        display: block;
+    }
+
+    .about__grid {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .about__column {
+        display: flex;
+        flex-direction: column;
+        gap: 5.6vw;
+    }
+
+    /* Меняем порядок: миссия перед фото */
+    .about__mission {
+        order: 1;
+        position: relative;
+        padding-top: 4.3vw;
+    }
+
+    .about__image-wrapper {
+        order: 2;
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 320 / 193;
+        border-radius: 2.78vw;
+    }
+
+    .about__subtitle {
+        font-size: 6.94vw;
+        max-width: 100%;
+    }
+
+    .about__lead {
+        font-size: 5vw;
+    }
+
+    .about__mission-strip {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 82.22vw;
+        height: 4.44vw;
+    }
+
+    .about__mission-strip::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: calc(100% + 2vw);
+        width: 16.67vw;
+        height: 4.44vw;
+        background: #ffffff;
+    }
+
+    .about__mission-text {
+        font-size: 3.89vw;
+        width: 100%;
+    }
+    .about__br-tablet {
+        display: none;
+    }
+}
+

@@ -1,25 +1,37 @@
-// src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './components/Layout/Layout';
-import DashboardPage from './pages/Dashboard/DashboardPage.jsx';
-import ProductsPage from './pages/ProductsPage/ProductsPage.jsx';
-import './App.css';
+import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import './App.css'
+
+import { Home } from "./pages/HomePage/Home.jsx"
+import {TonicsPage} from "./pages/TonicsPage/TonicsPage.jsx"
+import {CartPage} from "./pages/CartPage/CartPage.jsx"
+import {ProductPage} from "./pages/ProductPage/ProductPage.jsx";
+import {CatalogPage} from "./pages/CatalogPage/CatalogPage.jsx";
+import {AboutCompanyPage} from "./pages/AboutCompanyPage/AboutCompanyPage.jsx";
+import {PartnersPage} from "./pages/PartnersPage/PartnersPage.jsx";
+import {BlogPage} from "./pages/BlogPage/BlogPage.jsx";
+import {BlogArticlePage} from "./components/BlogArticle/BlogArticlePage.jsx";
+import {BlogIdPage} from "./pages/BlogIdPage/BlogIdPage.jsx";
 
 function App() {
+    const [count, setCount] = useState(0)
+
     return (
-        <Router>
+        <>
             <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Navigate to="/dashboard" replace />} />
-                    <Route path="dashboard" element={<DashboardPage />} />
-                    <Route path="products" element={<ProductsPage />} />
-                    <Route path="content" element={<div>Content Page</div>} />
-                    <Route path="promotion" element={<div>Promotion Page</div>} />
-                </Route>
+
+                <Route path="/" element={<Home />} />
+                <Route path="/product" element={<ProductPage />} />
+                <Route path="/tonics" element={<TonicsPage />} />
+                <Route path="/catalog" element={<CatalogPage />} />
+                <Route path="/about" element={<AboutCompanyPage />} />
+                <Route path="/partners" element={<PartnersPage />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:id" element={<BlogIdPage />} />
+                <Route path="/cart" element={<CartPage />} />
             </Routes>
-        </Router>
-    );
+        </>
+    )
 }
 
-export default App;
+export default App

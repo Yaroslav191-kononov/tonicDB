@@ -21,15 +21,15 @@ module.exports = (query) => {
         return { message: 'Вы неправильно ввели данные', errors: errors.array() }, 400;
       }
         try {
-      const { name, email, message, agree } = req.body;
+      const { name, email, message, agree,formUIQUE } = req.body;
       const ipAddress = req.ip;
       const userAgent = req.headers['user-agent'];
         await query(
           `
-          INSERT INTO contact_form_submissions (name, email, message, consent_given, ip_address, user_agent)
-          VALUES (?, ?, ?, ?, ?, ?)
+          INSERT INTO contact_form_submissions (name, email, message, consent_given, ip_address, user_agent, formUIQUE)
+          VALUES (?, ?, ?, ?, ?, ?, ?)
         `,
-          [name, email, message, agree, ipAddress, userAgent]
+          [name, email, message, agree, ipAddress, userAgent,formUIQUE]
         );
 
         return { message: 'Сообщение успешно отправлено' }, 201;

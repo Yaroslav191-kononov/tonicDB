@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-8.0
--- Время создания: Дек 26 2025 г., 11:47
+-- Время создания: Дек 26 2025 г., 13:06
 -- Версия сервера: 8.0.35
 -- Версия PHP: 8.1.28
 
@@ -179,7 +179,8 @@ INSERT INTO `cerf` (`id`, `product_id`, `header`, `url`) VALUES
 (10, 27, 'qewqewq', '3a9e8cc1-acaa-4fa6-9059-87e4a9a2f19f'),
 (15, 28, 'qweqew', 'fdd8ee63-9996-4bff-ab9e-05d97773ff0c'),
 (16, 29, 'tertert', '8ffbf15e-c04a-4415-b9ce-080cdba46dd2'),
-(21, 26, 'wewqeqw', 'bc4910b4-9c0c-4467-b381-16a8b15c3db2');
+(21, 26, 'wewqeqw', 'bc4910b4-9c0c-4467-b381-16a8b15c3db2'),
+(23, 30, 'qweqwe', 'eec43572-4cab-4965-888d-1937c10a19c1');
 
 -- --------------------------------------------------------
 
@@ -256,7 +257,9 @@ INSERT INTO `characteristic` (`id`, `product_id`, `name`, `description`) VALUES
 (59, 28, 'qweqwe', 'qweqwe'),
 (60, 28, 'qweqwe', 'qweqwe'),
 (61, 28, 'qweqwe', 'qweqwe'),
-(62, 28, 'qweqwe', 'qweqwe');
+(62, 28, 'qweqwe', 'qweqwe'),
+(63, 30, 'qweqwe', 'qwewqe'),
+(64, 30, 'weqw', 'qeqw');
 
 -- --------------------------------------------------------
 
@@ -302,15 +305,18 @@ CREATE TABLE `contact_form_submissions` (
   `user_agent` varchar(512) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status` enum('new','seen','in_progress','sent','closed') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'new'
+  `status` enum('new','seen','in_progress','sent','closed') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'new',
+  `formUIQUE` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Дамп данных таблицы `contact_form_submissions`
 --
 
-INSERT INTO `contact_form_submissions` (`id`, `name`, `email`, `message`, `consent_given`, `ip_address`, `user_agent`, `created_at`, `updated_at`, `status`) VALUES
-(1, '4244', 'example@domain.com', 'уцкуцкцук', 1, '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36', '2025-12-20 13:13:21', '2025-12-20 13:13:21', 'new');
+INSERT INTO `contact_form_submissions` (`id`, `name`, `email`, `message`, `consent_given`, `ip_address`, `user_agent`, `created_at`, `updated_at`, `status`, `formUIQUE`) VALUES
+(1, '4244', 'example@domain.com', 'уцкуцкцук', 1, '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36', '2025-12-20 13:13:21', '2025-12-26 10:02:09', 'new', 'About'),
+(2, '4244', 'example@domain.com', 'qwer', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 YaBrowser/25.12.0.0 Safari/537.36', '2025-12-26 10:03:54', '2025-12-26 10:06:01', 'new', 'Home'),
+(3, '123', 'example@domain.com', 'цукцукцук', 1, '::1', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Mobile Safari/537.36', '2025-12-26 10:05:52', '2025-12-26 10:05:52', 'new', 'Home');
 
 -- --------------------------------------------------------
 
@@ -628,7 +634,7 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `size`, `category_id`, `
 (7, 'название', '12432', 'ProductPhoto.jpg', 'small', 2, NULL, 1, NULL, NULL, NULL, NULL, NULL),
 (8, 'НАЗВАНИЕ', '2345', 'ProductPhoto.jpg', 'medium', 3, 'Текст описания текст описания текст описания Лечение стресса текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 9, 5, 'Умственная деятельность', 'Основная продукция', '100'),
 (9, 'НАЗВАНИЕ', '2345', 'ProductPhoto2.png', 'small', 3, 'Текст описания текст описания текст описания текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 0, 4, 'Умственная деятельность', 'Основная продукция', '100'),
-(10, 'НАЗВАНИЕ', '2345', 'ProductPhoto.jpg', 'large', 3, 'Текст описания текст описания текст описания текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 1, 0, 'Умственная деятельность', 'Доп. продукция ', '100'),
+(10, 'НАЗВАНИЕ', '2345', 'ProductPhoto.jpg', 'large', 3, 'Текст описания текст описания текст описания текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 2, 0, 'Умственная деятельность', 'Доп. продукция ', '100'),
 (11, 'НАЗВАНИЕ', '2345', 'ProductPhoto2.png', 'large', 3, 'Текст описания текст описания текст описания текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 0, 4, 'Умственная деятельность', 'Доп. продукция ', '100'),
 (12, 'Фукус', '2345', 'ProductPhoto.jpg', 'small', 3, 'Текст описания текст описания текст описания текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 0, 0, 'Физическое здоровье', 'Основная продукция', '100'),
 (13, 'Фукус', '2345', 'ProductPhoto2.png', 'medium', 3, 'Текст описания текст описания текст описания Умственная деятельность текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 1, 0, 'Физическое здоровье', 'Основная продукция', '100'),
@@ -636,10 +642,11 @@ INSERT INTO `products` (`id`, `name`, `price`, `image`, `size`, `category_id`, `
 (15, 'Ламинария', '2345', 'ProductPhoto2.png', 'medium', 3, 'Текст описания текст описания текст описания Физическое здоровье текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 1, 0, 'Лечение стресса', 'Основная продукция', '100'),
 (16, 'Ламинария', '2345', 'ProductPhoto.jpg', 'medium', 3, 'Текст описания текст описания текст описания Умственная деятельность текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 0, 0, 'Лечение стресса', 'Основная продукция', '100'),
 (17, 'Анфельция', '2345', 'ProductPhoto2.png', 'large', 3, 'Текст описания текст описания текст описания Лечение стресса текст описания\n                                    текст описания текст описания текст описания текст описания', 1, 0, 0, 'Лечение стресса', 'Основная продукция', '100'),
-(26, 'qewqe', '12300', '1766665234568-350018687.png', 'big', 3, 'qweqwewqe', 0, 1, 123, 'Физическое здоровье', 'Доп. продукция ', '123'),
+(26, 'qewqe', '12300', '1766665234568-350018687.png', 'big', 3, 'qweqwewqe', 0, 3, 123, 'Физическое здоровье', 'Доп. продукция ', '123'),
 (27, 'qewqe', '12300', '1766665234568-350018687.png', 'big', 3, 'qweqwewqe', 0, 0, 123, 'Лечение стресса', 'Основная продукция', '123'),
 (28, 'qewqedddd', '12355', '1766665234568-350018687.png', 'big', 3, 'qweqwewqe', 0, 0, 123, 'Умственная деятельность', 'Основная продукция', '123'),
-(29, 'qewqeйуйцу', '12355', '1766665234568-350018687.png', 'big', 3, 'qweqwewqe', 0, 0, 123, 'Умственная деятельность', 'Основная продукция', '123');
+(29, 'qewqeйуйцу', '12355', '1766665234568-350018687.png', 'big', 3, 'qweqwewqe', 0, 0, 123, 'Умственная деятельность', 'Основная продукция', '123'),
+(30, 'werwerewqeqwe', '13212', '1766742005682-910272633.jpg', 'big', 3, 'werewrweeqwewqe', 0, 0, 0, 'Доп. продукция ', NULL, '1232');
 
 -- --------------------------------------------------------
 
@@ -969,7 +976,10 @@ INSERT INTO `views_date` (`id`, `product_id`, `date`) VALUES
 (35, 26, '2025-12-25'),
 (36, 8, '2025-12-25'),
 (37, 8, '2025-12-25'),
-(38, 8, '2025-12-25');
+(38, 8, '2025-12-25'),
+(39, 26, '2025-12-26'),
+(40, 26, '2025-12-26'),
+(41, 10, '2025-12-26');
 
 --
 -- Индексы сохранённых таблиц
@@ -1207,13 +1217,13 @@ ALTER TABLE `blog_articles`
 -- AUTO_INCREMENT для таблицы `cerf`
 --
 ALTER TABLE `cerf`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `characteristic`
 --
 ALTER TABLE `characteristic`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT для таблицы `cms_pages`
@@ -1225,7 +1235,7 @@ ALTER TABLE `cms_pages`
 -- AUTO_INCREMENT для таблицы `contact_form_submissions`
 --
 ALTER TABLE `contact_form_submissions`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `hero_section`
@@ -1297,7 +1307,7 @@ ALTER TABLE `philosophy_item`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT для таблицы `product_categories`
@@ -1363,7 +1373,7 @@ ALTER TABLE `tonics_seo_text_block`
 -- AUTO_INCREMENT для таблицы `views_date`
 --
 ALTER TABLE `views_date`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

@@ -1,0 +1,221 @@
+/* ========== DESKTOP (≥1025px) ========== */
+.TonicsIndustries_section {
+    border-radius: 0 0 50px 50px;
+    width: 100%;
+    background-color: var(--clr-bg);
+    padding: 5.21vw 0;
+    overflow: hidden;
+}
+
+.TonicsIndustries_wrapper {
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: stretch;
+}
+
+
+.TonicsIndustries_list_wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-bg);
+    min-width: 0;
+}
+
+.TonicsIndustries_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.TonicsIndustries_item {
+    padding-left: 3.7vw;
+    font-size: 4.4vw;
+    font-weight: 500;
+    line-height: 110%;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+    color: var(--clr-white);
+
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.TonicsIndustries_item:hover {
+    opacity: 0.8;
+}
+
+
+.TonicsIndustries_item--active {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+}
+
+
+.TonicsIndustries_card {
+    background-color: var(--clr-white);
+    border-radius: 1.04vw;
+    padding: 2.60vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.08vw;
+    min-width: 0;
+}
+
+.TonicsIndustries_card_image {
+    width: 100%;
+    aspect-ratio: 21 / 16;
+    border-radius: 1.04vw;
+    overflow: hidden;
+}
+
+.TonicsIndustries_card_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.TonicsIndustries_cardContent {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+
+}
+
+.TonicsIndustries_cardContent p {
+    font-size: 0.86vw;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.03em;
+    color: var(--clr-black);
+    margin: 0;
+    text-align: justify;
+}
+.TonicsIndustries_mobile {
+    display: none;
+}
+
+/* ========== TABLET (768px - 1024px) ========== */
+@media (max-width: 1024px) {
+
+    .TonicsIndustries_desktop {
+        display: none;
+    }
+
+
+    .TonicsIndustries_mobile {
+        display: block;
+    }
+
+    .TonicsIndustries_section {
+
+        border-radius: 0 0 3.91vw 3.91vw;
+    }
+
+    .TonicsIndustries_accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .TonicsIndustries_accordionItem {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .TonicsIndustries_accordionHeader {
+        padding: 2.60vw 2.60vw;
+        font-size: 6.51vw;
+        font-weight: 500;
+        line-height: 110%;
+        letter-spacing: -0.07em;
+        text-transform: uppercase;
+        background-color: var(--clr-bg);
+        color: var(--clr-white);
+        cursor: pointer;
+    }
+
+    .TonicsIndustries_accordionItem--active .TonicsIndustries_accordionHeader {
+        background-color: var(--clr-white);
+        color: var(--clr-black);
+    }
+
+    .TonicsIndustries_accordionContent {
+        background-color: var(--clr-white);
+        padding: 2.5vw;
+
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 1.3vw;
+    }
+
+    .TonicsIndustries_accordionContent .TonicsIndustries_cardImage {
+        width: 52%;
+        height: auto;
+        aspect-ratio: 359 / 194;
+        border-radius: 1.30vw;
+        overflow: hidden;
+    }
+
+    .TonicsIndustries_accordionContent .TonicsIndustries_cardImage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .TonicsIndustries_accordionContent .TonicsIndustries_cardContent {
+        width: 100%;
+    }
+
+    .TonicsIndustries_accordionContent .TonicsIndustries_cardContent p {
+        font-size: 1.82vw;
+        line-height: 110%;
+        letter-spacing: -0.03em;
+        text-align: justify;
+        color: var(--clr-black);
+        margin: 0;
+    }
+
+}
+
+/* ========== MOBILE (360px - 767px) ========== */
+@media (max-width: 767px) {
+    .TonicsIndustries_section {
+
+
+    }
+
+    .TonicsIndustries_accordionHeader {
+        padding: 1.3vw 5.56vw;
+        font-size: 6.94vw;
+    }
+
+    .TonicsIndustries_accordionContent {
+        flex-direction: column-reverse;
+        padding: 5.56vw;
+
+        gap: 5.56vw;
+    }
+
+    .TonicsIndustries_accordionContent .TonicsIndustries_cardImage {
+        width: 100%;
+        height: auto;
+        border-radius: 2.78vw;
+    }
+
+    .TonicsIndustries_accordionContent .TonicsIndustries_cardContent p {
+        font-size: 3.89vw;
+    }
+}

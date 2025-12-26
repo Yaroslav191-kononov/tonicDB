@@ -1,0 +1,26 @@
+section{
+    background-color: var(--clr-bg);
+}
+.First_block{
+    background-color: var(--clr-bg);
+    border-radius: 0 0 50px 50px;
+}
+.Second_block{
+    background-color: var(--clr-bg);
+    border-radius: 50px;
+}
+.Third_block{
+    background-color: var(--clr-bg);
+    border-radius: 50px 50px 0 0;
+}
+@media (min-width: 1025px) {
+
+    section{
+        width: calc(100% - 40px);
+
+    }
+
+    body{ max-width: 100%; }
+
+
+}
